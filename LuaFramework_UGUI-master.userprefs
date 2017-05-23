@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LuaFramework/Editor/Packager.cs">
+    <Files>
+      <File FileName="Assets/ToLua/Editor/ToLuaMenu.cs" Line="104" Column="41" />
+      <File FileName="Assets/LuaFramework/Editor/CustomSettings.cs" Line="12" Column="2" />
+      <File FileName="Assets/LuaFramework/Editor/Packager.cs" Line="113" Column="42" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
