@@ -2,11 +2,11 @@
 Main = {}
 luaclass = require("middleclass")
 
-local TestClass2 = require("Test/TestClass2")
+local Teacher = require("Test/Teacher")
 
 function Main.Init()
-    print("++++Main Start+++")
-    local test = TestClass2:new()
+    local t = Teacher:new()
+    t:CoroutineTest()
 end
 
 function Main.Update()

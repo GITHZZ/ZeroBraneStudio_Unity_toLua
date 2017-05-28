@@ -17,7 +17,13 @@ local comap = {}
 setmetatable(comap, {__mode = "kv"})
 
 function coroutine.start(f, ...)	
-	local co = create(f)
+  local function callback(...)
+    --coroutine回调函数这里需要加这个方法做标记位继续断点
+    require("mobdebug").on()
+    f(...)
+  end 
+
+	local co = create(callback)
 	
 	if running() == nil then
 		local flag, msg = resume(co, ...)

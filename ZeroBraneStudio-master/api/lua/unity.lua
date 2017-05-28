@@ -15,7 +15,7 @@ childs={
 },
 },
 
-TestClass={
+Student={
 type='lib',
 childs={
 GetClassInfo={type='function',args ='()'},

@@ -2,7 +2,7 @@
 --date: 2017.4.30 16:25
 --desc: ZeroBrane Stuido 对一些个人需要的功能扩展相关测试代码
 
-local TestClass = luaclass("TestClass")
+local Student = luaclass("Student")
 
 Enum_EventType = { 
   test1 = 0,
@@ -17,12 +17,11 @@ local Enum_InfoType = {
 local function SetUpInfo()
 end 
 
-function TestClass.GetClassInfo()
+function Student.GetClassInfo()
 end 
 
-function TestClass:initialize()
+function Student:initialize()
   print("initialize")
 end
 
-
-return TestClass 
+return Student 
