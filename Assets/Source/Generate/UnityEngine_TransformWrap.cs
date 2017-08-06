@@ -652,7 +652,7 @@ public class UnityEngine_TransformWrap
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Transform obj = (UnityEngine.Transform)ToLua.CheckObject(L, 1, typeof(UnityEngine.Transform));
 			string arg0 = ToLua.CheckString(L, 2);
-			UnityEngine.Transform o = obj.FindChild(arg0);
+			UnityEngine.Transform o = obj.Find(arg0);
 			ToLua.Push(L, o);
 			return 1;
 		}

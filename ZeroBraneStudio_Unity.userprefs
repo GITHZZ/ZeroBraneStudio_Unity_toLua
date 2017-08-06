@@ -2,14 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ClientDefine.cs">
     <Files>
-      <File FileName="Assets/ToLua/Misc/LuaClient.cs" Line="86" Column="42" />
-      <File FileName="Assets/Scripts/ClientDefine.cs" Line="17" Column="12" />
-      <File FileName="Assets/Scripts/ClientMain.cs" Line="25" Column="1" />
+      <File FileName="Assets/ToLua/Misc/LuaClient.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ClientDefine.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ClientMain.cs" Line="1" Column="1" />
       <File FileName="Assets/ToLua/Editor/ToLuaMenu.cs" Line="1" Column="1" />
       <File FileName="Assets/Source/Generate/DelegateFactory.cs" Line="1" Column="1" />
       <File FileName="Assets/Source/Generate/LuaBinder.cs" Line="1" Column="1" />
       <File FileName="Assets/ToLua/Examples/15_ProtoBuffer/TestProtoBuffer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Source/LuaConst.cs" Line="23" Column="47" />
+      <File FileName="Assets/Source/LuaConst.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

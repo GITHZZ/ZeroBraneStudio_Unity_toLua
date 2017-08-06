@@ -19,7 +19,7 @@ local id = G.ID("sample.customLibManager")
 -- For `onEditorCharAdded` event it means that no further processing is done
 -- (but the character is still added to the editor).
 -- line numbers are 1-based in callbacks
-local events = {
+local events = { 
   onRegister =         function(self) end,
   onUnRegister =       function(self) end,
   onEditorLoad =       function(self, editor) end,
@@ -113,7 +113,7 @@ end
 
 local function GetContentStringAndType(str)
 	--检测枚举还是方法
-	local enumString = stringMatch(str, "Enum_%S+ = {")
+	local enumString = stringMatch(str, "Enum_%S+")
 	local funcString = stringMatch(str, "%a+")
 
 	if enumString then
@@ -125,7 +125,7 @@ local function GetContentStringAndType(str)
 			local className = stringSub(decodeString, 1, idx - 1)
 			local funcName = stringSub(decodeString, idx + 1, stringLen(decodeString))
 			local argsName = stringMatch(str, "%b()") or "()"
-			return contentType.func, className .. "={", funcName, argsName
+			return contentType.func, className, funcName, argsName
 		end
 	end 
 	return nil, nil, nil, nil
@@ -139,18 +139,24 @@ local function SaveContentToCustomLib(srcPathTbl)
 	end
 
 	local projectDir = ide.config.path.projectdir
-	local desFile, err = ioOpen("api/lua/unity.lua", "w")
+	local desFile, err = ioOpen("api/lua/unity.lua", "r+")
+
 	if not desFile then
 		if err then
 			print("Error to load unity.lua error:" .. err)
+			desFile:close() 
 		end
 		return
 	end
+	
+	local fileContent = desFile:read("*a")
+	desFile:seek("end", -1)
 
-	desFile:write("return{\n")
+	local apiTable = fileContent and loadstring(fileContent)() or {}
+
+	--desFile:write("return{\n") --以后构造文件自己加
 	for i = 1, #srcPathTbl, 1 do
 		local srcFile = ioOpen(srcPathTbl[i], "r")
-
 		if not srcFile then return end
 
 		local ty = nil
@@ -160,9 +166,7 @@ local function SaveContentToCustomLib(srcPathTbl)
 			local str = line
 
 			local t, className, funcName, argsName = GetContentStringAndType(str)
-
 			local isEnd = stringMatch(str, "}")
-
 			if ty == nil then ty = t end
 			--判断顺序不改变
 			if not isEnd and className ~= nil and not starting then
@@ -171,14 +175,18 @@ local function SaveContentToCustomLib(srcPathTbl)
 				if err then
 					DisplayOutputLn("错误:", srcPathTbl[i] .. "文件格式存在问题,错误信息如下:" .. err)
 				else 
-					desFile:write(className .. "\n")
-					desFile:write("type='lib',\n")
-					desFile:write("childs={\n")
+					local isInApi = apiTable[className]
+				
+					if not isInApi then
+						desFile:write(className .. "={\n")
+						desFile:write("type='lib',\n")
+						desFile:write("childs={\n")
 
-					if ty == contentType.func then
-						WriteFunctionToLib(desFile, funcName, argsName)
+						if ty == contentType.func then
+							WriteFunctionToLib(desFile, funcName, argsName)
+						end
+						starting = true
 					end
-					starting = true
 				end
 			elseif ty == contentType.enum and isEnd then
 				if starting then
@@ -200,6 +208,7 @@ local function SaveContentToCustomLib(srcPathTbl)
 					end
 				end
 			end
+			
 		end
 
 		if ty == contentType.func and starting then

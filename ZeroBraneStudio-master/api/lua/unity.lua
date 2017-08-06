@@ -1,5 +1,6 @@
 return{
-Enum_EventType = {
+	
+Enum_EventType={
 type='lib',
 childs={
   test1 ={type='value'},
@@ -7,7 +8,7 @@ childs={
 },
 },
 
-Enum_InfoType = {
+Enum_InfoType={
 type='lib',
 childs={
   student ={type='value'},
@@ -264,6 +265,66 @@ type='lib',
 childs={
 New={type='function',args ='(fingerId, position, rawPosition, deltaPosition, deltaTime, tapCount, phase)'},
 GetMask={type='function',args ='(...)'},
+},
+},
+
+parsed={
+type='lib',
+childs={
+scheme={type='function',args ='(s)'},
+userinfo={type='function',args ='(u)'},
+port={type='function',args ='(p)'},
+password={type='function',args ='(p)'},
+build={type='function',args ='(parsed)'},
+absolute={type='function',args ='(base_url, relative_url)'},
+parse={type='function',args ='(path)'},
+build={type='function',args ='(parsed, unsafe)'},
+},
+},
+
+FrameTimer={
+type='lib',
+childs={
+New={type='function',args ='(func, count, loop)'},
+New={type='function',args ='(func, duration, loop)'},
+},
+},
+
+FrameTimer={
+type='lib',
+childs={
+New={type='function',args ='(func, count, loop)'},
+New={type='function',args ='(func, duration, loop)'},
+},
+},
+
+CoTimer={
+type='lib',
+childs={
+New={type='function',args ='(func, duration, loop)'},
+},
+},
+
+CoTimer={
+type='lib',
+childs={
+New={type='function',args ='(func, duration, loop)'},
+},
+},
+
+Enum_EventType2={
+type='lib',
+childs={
+  test1 ={type='value'},
+  test2 ={type='value'},
+},
+},
+
+Enum_EventType3={
+type='lib',
+childs={
+  test1 ={type='value'},
+  test2 ={type='value'},
 },
 },
 
