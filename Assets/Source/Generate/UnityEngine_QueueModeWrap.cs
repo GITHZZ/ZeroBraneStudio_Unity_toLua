@@ -11,6 +11,18 @@ public class UnityEngine_QueueModeWrap
 		L.RegVar("PlayNow", get_PlayNow, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.QueueMode>.Check = CheckType;
+		StackTraits<UnityEngine.QueueMode>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.QueueMode arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.QueueMode), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

@@ -21,6 +21,7 @@ public class UnityEngine_AudioClipWrap
 		L.RegVar("frequency", get_frequency, null);
 		L.RegVar("loadType", get_loadType, null);
 		L.RegVar("preloadAudioData", get_preloadAudioData, null);
+		L.RegVar("ambisonic", get_ambisonic, null);
 		L.RegVar("loadState", get_loadState, null);
 		L.RegVar("loadInBackground", get_loadInBackground, null);
 		L.RegFunction("PCMReaderCallback", UnityEngine_AudioClip_PCMReaderCallback);
@@ -38,7 +39,7 @@ public class UnityEngine_AudioClipWrap
 			if (count == 0)
 			{
 				UnityEngine.AudioClip obj = new UnityEngine.AudioClip();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -46,7 +47,7 @@ public class UnityEngine_AudioClipWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.AudioClip.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -63,7 +64,7 @@ public class UnityEngine_AudioClipWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -80,7 +81,7 @@ public class UnityEngine_AudioClipWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -99,7 +100,7 @@ public class UnityEngine_AudioClipWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -118,7 +119,7 @@ public class UnityEngine_AudioClipWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -131,76 +132,40 @@ public class UnityEngine_AudioClipWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(int), typeof(int), typeof(int), typeof(bool)))
+			if (count == 5)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
-				bool arg4 = LuaDLL.lua_toboolean(L, 5);
+				string arg0 = ToLua.CheckString(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
+				bool arg4 = LuaDLL.luaL_checkboolean(L, 5);
 				UnityEngine.AudioClip o = UnityEngine.AudioClip.Create(arg0, arg1, arg2, arg3, arg4);
-				ToLua.Push(L, o);
+				ToLua.PushSealed(L, o);
 				return 1;
 			}
-			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(int), typeof(int), typeof(int), typeof(bool), typeof(UnityEngine.AudioClip.PCMReaderCallback)))
+			else if (count == 6)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
-				bool arg4 = LuaDLL.lua_toboolean(L, 5);
-				UnityEngine.AudioClip.PCMReaderCallback arg5 = null;
-				LuaTypes funcType6 = LuaDLL.lua_type(L, 6);
-
-				if (funcType6 != LuaTypes.LUA_TFUNCTION)
-				{
-					 arg5 = (UnityEngine.AudioClip.PCMReaderCallback)ToLua.ToObject(L, 6);
-				}
-				else
-				{
-					LuaFunction func = ToLua.ToLuaFunction(L, 6);
-					arg5 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMReaderCallback), func) as UnityEngine.AudioClip.PCMReaderCallback;
-				}
-
+				string arg0 = ToLua.CheckString(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
+				bool arg4 = LuaDLL.luaL_checkboolean(L, 5);
+				UnityEngine.AudioClip.PCMReaderCallback arg5 = (UnityEngine.AudioClip.PCMReaderCallback)ToLua.CheckDelegate<UnityEngine.AudioClip.PCMReaderCallback>(L, 6);
 				UnityEngine.AudioClip o = UnityEngine.AudioClip.Create(arg0, arg1, arg2, arg3, arg4, arg5);
-				ToLua.Push(L, o);
+				ToLua.PushSealed(L, o);
 				return 1;
 			}
-			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(int), typeof(int), typeof(int), typeof(bool), typeof(UnityEngine.AudioClip.PCMReaderCallback), typeof(UnityEngine.AudioClip.PCMSetPositionCallback)))
+			else if (count == 7)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
-				bool arg4 = LuaDLL.lua_toboolean(L, 5);
-				UnityEngine.AudioClip.PCMReaderCallback arg5 = null;
-				LuaTypes funcType6 = LuaDLL.lua_type(L, 6);
-
-				if (funcType6 != LuaTypes.LUA_TFUNCTION)
-				{
-					 arg5 = (UnityEngine.AudioClip.PCMReaderCallback)ToLua.ToObject(L, 6);
-				}
-				else
-				{
-					LuaFunction func = ToLua.ToLuaFunction(L, 6);
-					arg5 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMReaderCallback), func) as UnityEngine.AudioClip.PCMReaderCallback;
-				}
-
-				UnityEngine.AudioClip.PCMSetPositionCallback arg6 = null;
-				LuaTypes funcType7 = LuaDLL.lua_type(L, 7);
-
-				if (funcType7 != LuaTypes.LUA_TFUNCTION)
-				{
-					 arg6 = (UnityEngine.AudioClip.PCMSetPositionCallback)ToLua.ToObject(L, 7);
-				}
-				else
-				{
-					LuaFunction func = ToLua.ToLuaFunction(L, 7);
-					arg6 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMSetPositionCallback), func) as UnityEngine.AudioClip.PCMSetPositionCallback;
-				}
-
+				string arg0 = ToLua.CheckString(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
+				bool arg4 = LuaDLL.luaL_checkboolean(L, 5);
+				UnityEngine.AudioClip.PCMReaderCallback arg5 = (UnityEngine.AudioClip.PCMReaderCallback)ToLua.CheckDelegate<UnityEngine.AudioClip.PCMReaderCallback>(L, 6);
+				UnityEngine.AudioClip.PCMSetPositionCallback arg6 = (UnityEngine.AudioClip.PCMSetPositionCallback)ToLua.CheckDelegate<UnityEngine.AudioClip.PCMSetPositionCallback>(L, 7);
 				UnityEngine.AudioClip o = UnityEngine.AudioClip.Create(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
-				ToLua.Push(L, o);
+				ToLua.PushSealed(L, o);
 				return 1;
 			}
 			else
@@ -208,7 +173,7 @@ public class UnityEngine_AudioClipWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioClip.Create");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -226,7 +191,7 @@ public class UnityEngine_AudioClipWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -247,7 +212,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index length on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index length on a nil value");
 		}
 	}
 
@@ -266,7 +231,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index samples on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index samples on a nil value");
 		}
 	}
 
@@ -285,7 +250,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index channels on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index channels on a nil value");
 		}
 	}
 
@@ -304,7 +269,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index frequency on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index frequency on a nil value");
 		}
 	}
 
@@ -323,7 +288,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index loadType on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index loadType on a nil value");
 		}
 	}
 
@@ -342,7 +307,26 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index preloadAudioData on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index preloadAudioData on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_ambisonic(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AudioClip obj = (UnityEngine.AudioClip)o;
+			bool ret = obj.ambisonic;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index ambisonic on a nil value");
 		}
 	}
 
@@ -361,7 +345,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index loadState on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index loadState on a nil value");
 		}
 	}
 
@@ -380,7 +364,7 @@ public class UnityEngine_AudioClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index loadInBackground on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index loadInBackground on a nil value");
 		}
 	}
 
@@ -394,13 +378,13 @@ public class UnityEngine_AudioClipWrap
 
 			if (count == 1)
 			{
-				Delegate arg1 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMReaderCallback), func);
+				Delegate arg1 = DelegateTraits<UnityEngine.AudioClip.PCMReaderCallback>.Create(func);
 				ToLua.Push(L, arg1);
 			}
 			else
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMReaderCallback), func, self);
+				Delegate arg1 = DelegateTraits<UnityEngine.AudioClip.PCMReaderCallback>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;
@@ -421,13 +405,13 @@ public class UnityEngine_AudioClipWrap
 
 			if (count == 1)
 			{
-				Delegate arg1 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMSetPositionCallback), func);
+				Delegate arg1 = DelegateTraits<UnityEngine.AudioClip.PCMSetPositionCallback>.Create(func);
 				ToLua.Push(L, arg1);
 			}
 			else
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateFactory.CreateDelegate(typeof(UnityEngine.AudioClip.PCMSetPositionCallback), func, self);
+				Delegate arg1 = DelegateTraits<UnityEngine.AudioClip.PCMSetPositionCallback>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

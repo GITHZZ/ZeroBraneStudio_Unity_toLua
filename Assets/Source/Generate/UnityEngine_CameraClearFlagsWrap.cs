@@ -14,6 +14,18 @@ public class UnityEngine_CameraClearFlagsWrap
 		L.RegVar("Nothing", get_Nothing, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.CameraClearFlags>.Check = CheckType;
+		StackTraits<UnityEngine.CameraClearFlags>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.CameraClearFlags arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.CameraClearFlags), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

@@ -25,7 +25,7 @@ public class UnityEngine_SphereColliderWrap
 			if (count == 0)
 			{
 				UnityEngine.SphereCollider obj = new UnityEngine.SphereCollider();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -33,7 +33,7 @@ public class UnityEngine_SphereColliderWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.SphereCollider.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -51,7 +51,7 @@ public class UnityEngine_SphereColliderWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -72,7 +72,7 @@ public class UnityEngine_SphereColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index center on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index center on a nil value");
 		}
 	}
 
@@ -91,7 +91,7 @@ public class UnityEngine_SphereColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index radius on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index radius on a nil value");
 		}
 	}
 
@@ -110,7 +110,7 @@ public class UnityEngine_SphereColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index center on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index center on a nil value");
 		}
 	}
 
@@ -129,7 +129,7 @@ public class UnityEngine_SphereColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index radius on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index radius on a nil value");
 		}
 	}
 }

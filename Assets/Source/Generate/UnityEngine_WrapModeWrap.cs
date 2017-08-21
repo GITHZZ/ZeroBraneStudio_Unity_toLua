@@ -15,6 +15,18 @@ public class UnityEngine_WrapModeWrap
 		L.RegVar("Clamp", get_Clamp, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.WrapMode>.Check = CheckType;
+		StackTraits<UnityEngine.WrapMode>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.WrapMode arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.WrapMode), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

@@ -11,6 +11,18 @@ public class UnityEngine_SpaceWrap
 		L.RegVar("Self", get_Self, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.Space>.Check = CheckType;
+		StackTraits<UnityEngine.Space>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.Space arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.Space), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

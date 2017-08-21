@@ -12,6 +12,18 @@ public class UnityEngine_BlendWeightsWrap
 		L.RegVar("FourBones", get_FourBones, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.BlendWeights>.Check = CheckType;
+		StackTraits<UnityEngine.BlendWeights>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.BlendWeights arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.BlendWeights), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

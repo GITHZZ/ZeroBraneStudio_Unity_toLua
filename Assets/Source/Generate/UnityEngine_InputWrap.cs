@@ -62,7 +62,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushnumber(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -79,7 +79,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushnumber(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -96,7 +96,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -113,7 +113,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -130,7 +130,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -143,14 +143,14 @@ public class UnityEngine_InputWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.KeyCode)))
+			if (count == 1 && TypeChecker.CheckTypes<UnityEngine.KeyCode>(L, 1))
 			{
 				UnityEngine.KeyCode arg0 = (UnityEngine.KeyCode)ToLua.ToObject(L, 1);
 				bool o = UnityEngine.Input.GetKey(arg0);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
-			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			else if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				bool o = UnityEngine.Input.GetKey(arg0);
@@ -162,7 +162,7 @@ public class UnityEngine_InputWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Input.GetKey");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -175,14 +175,14 @@ public class UnityEngine_InputWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.KeyCode)))
+			if (count == 1 && TypeChecker.CheckTypes<UnityEngine.KeyCode>(L, 1))
 			{
 				UnityEngine.KeyCode arg0 = (UnityEngine.KeyCode)ToLua.ToObject(L, 1);
 				bool o = UnityEngine.Input.GetKeyDown(arg0);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
-			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			else if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				bool o = UnityEngine.Input.GetKeyDown(arg0);
@@ -194,7 +194,7 @@ public class UnityEngine_InputWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Input.GetKeyDown");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -207,14 +207,14 @@ public class UnityEngine_InputWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.KeyCode)))
+			if (count == 1 && TypeChecker.CheckTypes<UnityEngine.KeyCode>(L, 1))
 			{
 				UnityEngine.KeyCode arg0 = (UnityEngine.KeyCode)ToLua.ToObject(L, 1);
 				bool o = UnityEngine.Input.GetKeyUp(arg0);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
-			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			else if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				bool o = UnityEngine.Input.GetKeyUp(arg0);
@@ -226,7 +226,7 @@ public class UnityEngine_InputWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Input.GetKeyUp");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -242,7 +242,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -259,7 +259,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -276,7 +276,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -293,7 +293,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -308,7 +308,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.ResetInputAxes();
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -325,7 +325,7 @@ public class UnityEngine_InputWrap
 			ToLua.PushValue(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -356,7 +356,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.compensateSensors);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -367,10 +367,10 @@ public class UnityEngine_InputWrap
 	{
 		try
 		{
-			ToLua.PushObject(L, UnityEngine.Input.gyro);
+			ToLua.PushSealed(L, UnityEngine.Input.gyro);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -384,7 +384,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.mousePosition);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -398,7 +398,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.mouseScrollDelta);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -412,7 +412,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.mousePresent);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -426,7 +426,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.simulateMouseWithTouches);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -440,7 +440,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.anyKey);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -454,7 +454,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.anyKeyDown);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -468,7 +468,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushstring(L, UnityEngine.Input.inputString);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -482,7 +482,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.acceleration);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -496,7 +496,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.accelerationEvents);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -510,7 +510,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Input.accelerationEventCount);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -524,7 +524,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.touches);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -538,7 +538,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Input.touchCount);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -552,7 +552,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.touchPressureSupported);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -566,7 +566,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.stylusTouchSupported);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -580,7 +580,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.touchSupported);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -594,7 +594,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.multiTouchEnabled);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -605,10 +605,10 @@ public class UnityEngine_InputWrap
 	{
 		try
 		{
-			ToLua.PushObject(L, UnityEngine.Input.location);
+			ToLua.PushSealed(L, UnityEngine.Input.location);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -619,10 +619,10 @@ public class UnityEngine_InputWrap
 	{
 		try
 		{
-			ToLua.PushObject(L, UnityEngine.Input.compass);
+			ToLua.PushSealed(L, UnityEngine.Input.compass);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -636,7 +636,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.deviceOrientation);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -650,7 +650,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.imeCompositionMode);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -664,7 +664,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushstring(L, UnityEngine.Input.compositionString);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -678,7 +678,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.imeIsSelected);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -692,7 +692,7 @@ public class UnityEngine_InputWrap
 			ToLua.Push(L, UnityEngine.Input.compositionCursorPos);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -706,7 +706,7 @@ public class UnityEngine_InputWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Input.backButtonLeavesApp);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -721,7 +721,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.compensateSensors = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -736,7 +736,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.simulateMouseWithTouches = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -751,7 +751,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.multiTouchEnabled = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -766,7 +766,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.imeCompositionMode = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -781,7 +781,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.compositionCursorPos = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -796,7 +796,7 @@ public class UnityEngine_InputWrap
 			UnityEngine.Input.backButtonLeavesApp = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

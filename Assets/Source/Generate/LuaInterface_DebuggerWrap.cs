@@ -24,26 +24,26 @@ public class LuaInterface_DebuggerWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				LuaInterface.Debugger.Log(arg0);
 				return 0;
 			}
-			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(object)))
+			else if (count == 1 && TypeChecker.CheckTypes<object>(L, 1))
 			{
 				object arg0 = ToLua.ToVarObject(L, 1);
 				LuaInterface.Debugger.Log(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object)))
+			else if (count == 2 && TypeChecker.CheckTypes<string, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
 				LuaInterface.Debugger.Log(arg0, arg1);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object), typeof(object)))
+			else if (count == 3 && TypeChecker.CheckTypes<string, object, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
@@ -51,7 +51,7 @@ public class LuaInterface_DebuggerWrap
 				LuaInterface.Debugger.Log(arg0, arg1, arg2);
 				return 0;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object), typeof(object), typeof(object)))
+			else if (count == 4 && TypeChecker.CheckTypes<string, object, object, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
@@ -60,7 +60,7 @@ public class LuaInterface_DebuggerWrap
 				LuaInterface.Debugger.Log(arg0, arg1, arg2, arg3);
 				return 0;
 			}
-			else if (TypeChecker.CheckTypes(L, 1, typeof(string)) && TypeChecker.CheckParamsType(L, typeof(object), 2, count - 1))
+			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
@@ -72,7 +72,7 @@ public class LuaInterface_DebuggerWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: LuaInterface.Debugger.Log");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -85,26 +85,26 @@ public class LuaInterface_DebuggerWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				LuaInterface.Debugger.LogWarning(arg0);
 				return 0;
 			}
-			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(object)))
+			else if (count == 1 && TypeChecker.CheckTypes<object>(L, 1))
 			{
 				object arg0 = ToLua.ToVarObject(L, 1);
 				LuaInterface.Debugger.LogWarning(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object)))
+			else if (count == 2 && TypeChecker.CheckTypes<string, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
 				LuaInterface.Debugger.LogWarning(arg0, arg1);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object), typeof(object)))
+			else if (count == 3 && TypeChecker.CheckTypes<string, object, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
@@ -112,7 +112,7 @@ public class LuaInterface_DebuggerWrap
 				LuaInterface.Debugger.LogWarning(arg0, arg1, arg2);
 				return 0;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object), typeof(object), typeof(object)))
+			else if (count == 4 && TypeChecker.CheckTypes<string, object, object, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
@@ -121,7 +121,7 @@ public class LuaInterface_DebuggerWrap
 				LuaInterface.Debugger.LogWarning(arg0, arg1, arg2, arg3);
 				return 0;
 			}
-			else if (TypeChecker.CheckTypes(L, 1, typeof(string)) && TypeChecker.CheckParamsType(L, typeof(object), 2, count - 1))
+			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
@@ -133,7 +133,7 @@ public class LuaInterface_DebuggerWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: LuaInterface.Debugger.LogWarning");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -146,26 +146,26 @@ public class LuaInterface_DebuggerWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			if (count == 1 && TypeChecker.CheckTypes<string>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				LuaInterface.Debugger.LogError(arg0);
 				return 0;
 			}
-			else if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(object)))
+			else if (count == 1 && TypeChecker.CheckTypes<object>(L, 1))
 			{
 				object arg0 = ToLua.ToVarObject(L, 1);
 				LuaInterface.Debugger.LogError(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object)))
+			else if (count == 2 && TypeChecker.CheckTypes<string, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
 				LuaInterface.Debugger.LogError(arg0, arg1);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object), typeof(object)))
+			else if (count == 3 && TypeChecker.CheckTypes<string, object, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
@@ -173,7 +173,7 @@ public class LuaInterface_DebuggerWrap
 				LuaInterface.Debugger.LogError(arg0, arg1, arg2);
 				return 0;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(object), typeof(object), typeof(object)))
+			else if (count == 4 && TypeChecker.CheckTypes<string, object, object, object>(L, 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object arg1 = ToLua.ToVarObject(L, 2);
@@ -182,7 +182,7 @@ public class LuaInterface_DebuggerWrap
 				LuaInterface.Debugger.LogError(arg0, arg1, arg2, arg3);
 				return 0;
 			}
-			else if (TypeChecker.CheckTypes(L, 1, typeof(string)) && TypeChecker.CheckParamsType(L, typeof(object), 2, count - 1))
+			else if (TypeChecker.CheckTypes<string>(L, 1) && TypeChecker.CheckParamsType<object>(L, 2, count - 1))
 			{
 				string arg0 = ToLua.ToString(L, 1);
 				object[] arg1 = ToLua.ToParamsObject(L, 2, count - 1);
@@ -194,7 +194,7 @@ public class LuaInterface_DebuggerWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: LuaInterface.Debugger.LogError");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -207,16 +207,16 @@ public class LuaInterface_DebuggerWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(System.Exception)))
+			if (count == 1)
 			{
-				System.Exception arg0 = (System.Exception)ToLua.ToObject(L, 1);
+				System.Exception arg0 = (System.Exception)ToLua.CheckObject<System.Exception>(L, 1);
 				LuaInterface.Debugger.LogException(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Exception)))
+			else if (count == 2)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				System.Exception arg1 = (System.Exception)ToLua.ToObject(L, 2);
+				string arg0 = ToLua.CheckString(L, 1);
+				System.Exception arg1 = (System.Exception)ToLua.CheckObject<System.Exception>(L, 2);
 				LuaInterface.Debugger.LogException(arg0, arg1);
 				return 0;
 			}
@@ -225,7 +225,7 @@ public class LuaInterface_DebuggerWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: LuaInterface.Debugger.LogException");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -239,7 +239,7 @@ public class LuaInterface_DebuggerWrap
 			LuaDLL.lua_pushboolean(L, LuaInterface.Debugger.useLog);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -253,7 +253,7 @@ public class LuaInterface_DebuggerWrap
 			LuaDLL.lua_pushstring(L, LuaInterface.Debugger.threadStack);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -267,7 +267,7 @@ public class LuaInterface_DebuggerWrap
 			ToLua.PushObject(L, LuaInterface.Debugger.logger);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -282,7 +282,7 @@ public class LuaInterface_DebuggerWrap
 			LuaInterface.Debugger.useLog = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -297,7 +297,7 @@ public class LuaInterface_DebuggerWrap
 			LuaInterface.Debugger.threadStack = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -308,11 +308,11 @@ public class LuaInterface_DebuggerWrap
 	{
 		try
 		{
-			LuaInterface.ILogger arg0 = (LuaInterface.ILogger)ToLua.CheckObject(L, 2, typeof(LuaInterface.ILogger));
+			LuaInterface.ILogger arg0 = (LuaInterface.ILogger)ToLua.CheckObject<LuaInterface.ILogger>(L, 2);
 			LuaInterface.Debugger.logger = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

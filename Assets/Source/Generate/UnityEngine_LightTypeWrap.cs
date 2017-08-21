@@ -13,6 +13,18 @@ public class UnityEngine_LightTypeWrap
 		L.RegVar("Area", get_Area, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.LightType>.Check = CheckType;
+		StackTraits<UnityEngine.LightType>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.LightType arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.LightType), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

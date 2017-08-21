@@ -20,7 +20,7 @@ public class TestLuaThread : MonoBehaviour
                 print('Coroutine started')                
                 local i = 0
                 for i = 0, len, 1 do                    
-                    local flag = coroutine.yield(fib(i))					
+                    local flag = coroutine.yield(fib(i))	                    
                     if not flag then
                         break
                     end                                      
@@ -36,9 +36,16 @@ public class TestLuaThread : MonoBehaviour
 
     LuaState state = null;
     LuaThread thread = null;
+    string tips = null;
 
-	void Start () 
+    void Start () 
     {
+#if UNITY_5 || UNITY_2017
+        Application.logMessageReceived += ShowTips;
+#else
+        Application.RegisterLogCallback(ShowTips);
+#endif
+        new LuaResLoader();
         state = new LuaState();
         state.Start();
         state.LogGC = true;
@@ -56,7 +63,7 @@ public class TestLuaThread : MonoBehaviour
         thread.Resume(10);
 	}
 
-    void OnDestroy()
+    void OnApplicationQuit()
     {
         if (thread != null)
         {
@@ -66,6 +73,17 @@ public class TestLuaThread : MonoBehaviour
 
         state.Dispose();
         state = null;
+#if UNITY_5 || UNITY_2017
+        Application.logMessageReceived -= ShowTips;
+#else
+        Application.RegisterLogCallback(null);
+#endif
+    }
+
+    void ShowTips(string msg, string stackTrace, LogType type)
+    {
+        tips += msg;
+        tips += "\r\n";
     }
 
     void Update()
@@ -76,15 +94,18 @@ public class TestLuaThread : MonoBehaviour
 
     void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 120, 40), "Resume Thead"))
+        GUI.Label(new Rect(Screen.width / 2 - 300, Screen.height / 2 - 200, 600, 400), tips);
+
+        if (GUI.Button(new Rect(10, 50, 120, 40), "Resume Thead"))
         {
-            if (thread != null && thread.Resume(true) == (int)LuaThreadStatus.LUA_YIELD)
-            {
-                object[] objs = thread.GetResult();
-                Debugger.Log("lua yield: " + objs[0]);
+            int ret = -1;
+
+            if (thread != null && thread.Resume(true, out ret) == (int)LuaThreadStatus.LUA_YIELD)
+            {                
+                Debugger.Log("lua yield: " + ret);
             }
         }
-        else if (GUI.Button(new Rect(10, 60, 120, 40), "Close Thread"))
+        else if (GUI.Button(new Rect(10, 150, 120, 40), "Close Thread"))
         {
             if (thread != null)
             {                

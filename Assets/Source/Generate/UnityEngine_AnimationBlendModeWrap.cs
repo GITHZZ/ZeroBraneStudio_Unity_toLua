@@ -11,6 +11,18 @@ public class UnityEngine_AnimationBlendModeWrap
 		L.RegVar("Additive", get_Additive, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.AnimationBlendMode>.Check = CheckType;
+		StackTraits<UnityEngine.AnimationBlendMode>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.AnimationBlendMode arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.AnimationBlendMode), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

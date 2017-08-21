@@ -23,6 +23,8 @@ public class UnityEngine_AudioSourceWrap
 		L.RegFunction("GetSpectrumData", GetSpectrumData);
 		L.RegFunction("SetSpatializerFloat", SetSpatializerFloat);
 		L.RegFunction("GetSpatializerFloat", GetSpatializerFloat);
+		L.RegFunction("SetAmbisonicDecoderFloat", SetAmbisonicDecoderFloat);
+		L.RegFunction("GetAmbisonicDecoderFloat", GetAmbisonicDecoderFloat);
 		L.RegFunction("New", _CreateUnityEngine_AudioSource);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
@@ -67,7 +69,7 @@ public class UnityEngine_AudioSourceWrap
 			if (count == 0)
 			{
 				UnityEngine.AudioSource obj = new UnityEngine.AudioSource();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -75,7 +77,7 @@ public class UnityEngine_AudioSourceWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.AudioSource.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -88,16 +90,16 @@ public class UnityEngine_AudioSourceWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AudioSource)))
+			if (count == 1)
 			{
-				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.ToObject(L, 1);
+				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 				obj.Play();
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AudioSource), typeof(ulong)))
+			else if (count == 2)
 			{
-				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.ToObject(L, 1);
-				ulong arg0 = LuaDLL.tolua_touint64(L, 2);
+				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
+				ulong arg0 = LuaDLL.tolua_checkuint64(L, 2);
 				obj.Play(arg0);
 				return 0;
 			}
@@ -106,7 +108,7 @@ public class UnityEngine_AudioSourceWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioSource.Play");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -123,7 +125,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.PlayDelayed(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -140,7 +142,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.PlayScheduled(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -157,7 +159,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.SetScheduledStartTime(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -174,7 +176,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.SetScheduledEndTime(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -190,7 +192,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.Stop();
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -206,7 +208,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.Pause();
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -222,7 +224,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.UnPause();
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -235,18 +237,18 @@ public class UnityEngine_AudioSourceWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AudioSource), typeof(UnityEngine.AudioClip)))
+			if (count == 2)
 			{
-				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.ToObject(L, 1);
-				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.ToObject(L, 2);
+				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
+				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckObject(L, 2, typeof(UnityEngine.AudioClip));
 				obj.PlayOneShot(arg0);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AudioSource), typeof(UnityEngine.AudioClip), typeof(float)))
+			else if (count == 3)
 			{
-				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.ToObject(L, 1);
-				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.ToObject(L, 2);
-				float arg1 = (float)LuaDLL.lua_tonumber(L, 3);
+				UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
+				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckObject(L, 2, typeof(UnityEngine.AudioClip));
+				float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 				obj.PlayOneShot(arg0, arg1);
 				return 0;
 			}
@@ -255,7 +257,7 @@ public class UnityEngine_AudioSourceWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioSource.PlayOneShot");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -268,18 +270,18 @@ public class UnityEngine_AudioSourceWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AudioClip), typeof(UnityEngine.Vector3)))
+			if (count == 2)
 			{
-				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.ToObject(L, 1);
+				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioClip));
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
 				UnityEngine.AudioSource.PlayClipAtPoint(arg0, arg1);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AudioClip), typeof(UnityEngine.Vector3), typeof(float)))
+			else if (count == 3)
 			{
-				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.ToObject(L, 1);
+				UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioClip));
 				UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 2);
-				float arg2 = (float)LuaDLL.lua_tonumber(L, 3);
+				float arg2 = (float)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.AudioSource.PlayClipAtPoint(arg0, arg1, arg2);
 				return 0;
 			}
@@ -288,7 +290,7 @@ public class UnityEngine_AudioSourceWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AudioSource.PlayClipAtPoint");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -306,7 +308,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.SetCustomCurve(arg0, arg1);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -321,10 +323,10 @@ public class UnityEngine_AudioSourceWrap
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
 			UnityEngine.AudioSourceCurveType arg0 = (UnityEngine.AudioSourceCurveType)ToLua.CheckObject(L, 2, typeof(UnityEngine.AudioSourceCurveType));
 			UnityEngine.AnimationCurve o = obj.GetCustomCurve(arg0);
-			ToLua.PushObject(L, o);
+			ToLua.PushSealed(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -342,7 +344,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.GetOutputData(arg0, arg1);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -361,7 +363,7 @@ public class UnityEngine_AudioSourceWrap
 			obj.GetSpectrumData(arg0, arg1, arg2);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -380,7 +382,7 @@ public class UnityEngine_AudioSourceWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -400,7 +402,46 @@ public class UnityEngine_AudioSourceWrap
 			LuaDLL.lua_pushnumber(L, arg1);
 			return 2;
 		}
-		catch(Exception e)
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetAmbisonicDecoderFloat(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
+			bool o = obj.SetAmbisonicDecoderFloat(arg0, arg1);
+			LuaDLL.lua_pushboolean(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetAmbisonicDecoderFloat(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 3);
+			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)ToLua.CheckObject(L, 1, typeof(UnityEngine.AudioSource));
+			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+			float arg1;
+			bool o = obj.GetAmbisonicDecoderFloat(arg0, out arg1);
+			LuaDLL.lua_pushboolean(L, o);
+			LuaDLL.lua_pushnumber(L, arg1);
+			return 2;
+		}
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -418,7 +459,7 @@ public class UnityEngine_AudioSourceWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -439,7 +480,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index volume on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index volume on a nil value");
 		}
 	}
 
@@ -458,7 +499,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index pitch on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index pitch on a nil value");
 		}
 	}
 
@@ -477,7 +518,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index time on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index time on a nil value");
 		}
 	}
 
@@ -496,7 +537,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index timeSamples on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index timeSamples on a nil value");
 		}
 	}
 
@@ -510,12 +551,12 @@ public class UnityEngine_AudioSourceWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
 			UnityEngine.AudioClip ret = obj.clip;
-			ToLua.Push(L, ret);
+			ToLua.PushSealed(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index clip on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index clip on a nil value");
 		}
 	}
 
@@ -534,7 +575,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index outputAudioMixerGroup on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index outputAudioMixerGroup on a nil value");
 		}
 	}
 
@@ -553,7 +594,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index isPlaying on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isPlaying on a nil value");
 		}
 	}
 
@@ -572,7 +613,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index isVirtual on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isVirtual on a nil value");
 		}
 	}
 
@@ -591,7 +632,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index loop on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index loop on a nil value");
 		}
 	}
 
@@ -610,7 +651,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index ignoreListenerVolume on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index ignoreListenerVolume on a nil value");
 		}
 	}
 
@@ -629,7 +670,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index playOnAwake on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index playOnAwake on a nil value");
 		}
 	}
 
@@ -648,7 +689,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index ignoreListenerPause on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index ignoreListenerPause on a nil value");
 		}
 	}
 
@@ -667,7 +708,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index velocityUpdateMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index velocityUpdateMode on a nil value");
 		}
 	}
 
@@ -686,7 +727,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index panStereo on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index panStereo on a nil value");
 		}
 	}
 
@@ -705,7 +746,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spatialBlend on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spatialBlend on a nil value");
 		}
 	}
 
@@ -724,7 +765,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spatialize on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spatialize on a nil value");
 		}
 	}
 
@@ -743,7 +784,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spatializePostEffects on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spatializePostEffects on a nil value");
 		}
 	}
 
@@ -762,7 +803,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index reverbZoneMix on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index reverbZoneMix on a nil value");
 		}
 	}
 
@@ -781,7 +822,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index bypassEffects on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index bypassEffects on a nil value");
 		}
 	}
 
@@ -800,7 +841,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index bypassListenerEffects on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index bypassListenerEffects on a nil value");
 		}
 	}
 
@@ -819,7 +860,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index bypassReverbZones on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index bypassReverbZones on a nil value");
 		}
 	}
 
@@ -838,7 +879,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index dopplerLevel on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index dopplerLevel on a nil value");
 		}
 	}
 
@@ -857,7 +898,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spread on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spread on a nil value");
 		}
 	}
 
@@ -876,7 +917,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index priority on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index priority on a nil value");
 		}
 	}
 
@@ -895,7 +936,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index mute on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index mute on a nil value");
 		}
 	}
 
@@ -914,7 +955,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index minDistance on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index minDistance on a nil value");
 		}
 	}
 
@@ -933,7 +974,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index maxDistance on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index maxDistance on a nil value");
 		}
 	}
 
@@ -952,7 +993,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index rolloffMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index rolloffMode on a nil value");
 		}
 	}
 
@@ -971,7 +1012,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index volume on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index volume on a nil value");
 		}
 	}
 
@@ -990,7 +1031,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index pitch on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index pitch on a nil value");
 		}
 	}
 
@@ -1009,7 +1050,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index time on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index time on a nil value");
 		}
 	}
 
@@ -1028,7 +1069,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index timeSamples on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index timeSamples on a nil value");
 		}
 	}
 
@@ -1041,13 +1082,13 @@ public class UnityEngine_AudioSourceWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
-			UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.AudioClip));
+			UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckObject(L, 2, typeof(UnityEngine.AudioClip));
 			obj.clip = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index clip on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index clip on a nil value");
 		}
 	}
 
@@ -1060,13 +1101,13 @@ public class UnityEngine_AudioSourceWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AudioSource obj = (UnityEngine.AudioSource)o;
-			UnityEngine.Audio.AudioMixerGroup arg0 = (UnityEngine.Audio.AudioMixerGroup)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Audio.AudioMixerGroup));
+			UnityEngine.Audio.AudioMixerGroup arg0 = (UnityEngine.Audio.AudioMixerGroup)ToLua.CheckObject<UnityEngine.Audio.AudioMixerGroup>(L, 2);
 			obj.outputAudioMixerGroup = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index outputAudioMixerGroup on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index outputAudioMixerGroup on a nil value");
 		}
 	}
 
@@ -1085,7 +1126,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index loop on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index loop on a nil value");
 		}
 	}
 
@@ -1104,7 +1145,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index ignoreListenerVolume on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index ignoreListenerVolume on a nil value");
 		}
 	}
 
@@ -1123,7 +1164,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index playOnAwake on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index playOnAwake on a nil value");
 		}
 	}
 
@@ -1142,7 +1183,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index ignoreListenerPause on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index ignoreListenerPause on a nil value");
 		}
 	}
 
@@ -1161,7 +1202,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index velocityUpdateMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index velocityUpdateMode on a nil value");
 		}
 	}
 
@@ -1180,7 +1221,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index panStereo on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index panStereo on a nil value");
 		}
 	}
 
@@ -1199,7 +1240,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spatialBlend on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spatialBlend on a nil value");
 		}
 	}
 
@@ -1218,7 +1259,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spatialize on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spatialize on a nil value");
 		}
 	}
 
@@ -1237,7 +1278,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spatializePostEffects on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spatializePostEffects on a nil value");
 		}
 	}
 
@@ -1256,7 +1297,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index reverbZoneMix on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index reverbZoneMix on a nil value");
 		}
 	}
 
@@ -1275,7 +1316,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index bypassEffects on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index bypassEffects on a nil value");
 		}
 	}
 
@@ -1294,7 +1335,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index bypassListenerEffects on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index bypassListenerEffects on a nil value");
 		}
 	}
 
@@ -1313,7 +1354,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index bypassReverbZones on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index bypassReverbZones on a nil value");
 		}
 	}
 
@@ -1332,7 +1373,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index dopplerLevel on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index dopplerLevel on a nil value");
 		}
 	}
 
@@ -1351,7 +1392,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index spread on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index spread on a nil value");
 		}
 	}
 
@@ -1370,7 +1411,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index priority on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index priority on a nil value");
 		}
 	}
 
@@ -1389,7 +1430,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index mute on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index mute on a nil value");
 		}
 	}
 
@@ -1408,7 +1449,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index minDistance on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index minDistance on a nil value");
 		}
 	}
 
@@ -1427,7 +1468,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index maxDistance on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index maxDistance on a nil value");
 		}
 	}
 
@@ -1446,7 +1487,7 @@ public class UnityEngine_AudioSourceWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index rolloffMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index rolloffMode on a nil value");
 		}
 	}
 }

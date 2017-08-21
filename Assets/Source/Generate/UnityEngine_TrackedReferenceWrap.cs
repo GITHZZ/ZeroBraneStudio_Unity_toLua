@@ -26,7 +26,7 @@ public class UnityEngine_TrackedReferenceWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -38,13 +38,13 @@ public class UnityEngine_TrackedReferenceWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			UnityEngine.TrackedReference obj = (UnityEngine.TrackedReference)ToLua.CheckObject(L, 1, typeof(UnityEngine.TrackedReference));
+			UnityEngine.TrackedReference obj = (UnityEngine.TrackedReference)ToLua.CheckObject<UnityEngine.TrackedReference>(L, 1);
 			object arg0 = ToLua.ToVarObject(L, 2);
 			bool o = obj != null ? obj.Equals(arg0) : arg0 == null;
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -56,12 +56,12 @@ public class UnityEngine_TrackedReferenceWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.TrackedReference obj = (UnityEngine.TrackedReference)ToLua.CheckObject(L, 1, typeof(UnityEngine.TrackedReference));
+			UnityEngine.TrackedReference obj = (UnityEngine.TrackedReference)ToLua.CheckObject<UnityEngine.TrackedReference>(L, 1);
 			int o = obj.GetHashCode();
 			LuaDLL.lua_pushinteger(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

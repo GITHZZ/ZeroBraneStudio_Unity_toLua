@@ -27,7 +27,7 @@ public class UnityEngine_MeshColliderWrap
 			if (count == 0)
 			{
 				UnityEngine.MeshCollider obj = new UnityEngine.MeshCollider();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -35,7 +35,7 @@ public class UnityEngine_MeshColliderWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.MeshCollider.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -53,7 +53,7 @@ public class UnityEngine_MeshColliderWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -69,12 +69,12 @@ public class UnityEngine_MeshColliderWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
 			UnityEngine.Mesh ret = obj.sharedMesh;
-			ToLua.Push(L, ret);
+			ToLua.PushSealed(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index sharedMesh on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index sharedMesh on a nil value");
 		}
 	}
 
@@ -93,7 +93,7 @@ public class UnityEngine_MeshColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index convex on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index convex on a nil value");
 		}
 	}
 
@@ -112,7 +112,7 @@ public class UnityEngine_MeshColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index inflateMesh on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index inflateMesh on a nil value");
 		}
 	}
 
@@ -131,7 +131,7 @@ public class UnityEngine_MeshColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index skinWidth on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index skinWidth on a nil value");
 		}
 	}
 
@@ -144,13 +144,13 @@ public class UnityEngine_MeshColliderWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshCollider obj = (UnityEngine.MeshCollider)o;
-			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
+			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckObject(L, 2, typeof(UnityEngine.Mesh));
 			obj.sharedMesh = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index sharedMesh on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index sharedMesh on a nil value");
 		}
 	}
 
@@ -169,7 +169,7 @@ public class UnityEngine_MeshColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index convex on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index convex on a nil value");
 		}
 	}
 
@@ -188,7 +188,7 @@ public class UnityEngine_MeshColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index inflateMesh on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index inflateMesh on a nil value");
 		}
 	}
 
@@ -207,7 +207,7 @@ public class UnityEngine_MeshColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index skinWidth on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index skinWidth on a nil value");
 		}
 	}
 }

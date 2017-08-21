@@ -11,6 +11,18 @@ public class UnityEngine_PlayModeWrap
 		L.RegVar("StopAll", get_StopAll, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.PlayMode>.Check = CheckType;
+		StackTraits<UnityEngine.PlayMode>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.PlayMode arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.PlayMode), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

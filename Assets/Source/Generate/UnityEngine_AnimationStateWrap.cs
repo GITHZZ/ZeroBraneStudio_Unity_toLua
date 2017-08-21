@@ -37,7 +37,7 @@ public class UnityEngine_AnimationStateWrap
 			if (count == 0)
 			{
 				UnityEngine.AnimationState obj = new UnityEngine.AnimationState();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -45,7 +45,7 @@ public class UnityEngine_AnimationStateWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.AnimationState.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -58,18 +58,18 @@ public class UnityEngine_AnimationStateWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AnimationState), typeof(UnityEngine.Transform)))
+			if (count == 2)
 			{
-				UnityEngine.AnimationState obj = (UnityEngine.AnimationState)ToLua.ToObject(L, 1);
-				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.ToObject(L, 2);
+				UnityEngine.AnimationState obj = (UnityEngine.AnimationState)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationState));
+				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 2);
 				obj.AddMixingTransform(arg0);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.AnimationState), typeof(UnityEngine.Transform), typeof(bool)))
+			else if (count == 3)
 			{
-				UnityEngine.AnimationState obj = (UnityEngine.AnimationState)ToLua.ToObject(L, 1);
-				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.ToObject(L, 2);
-				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				UnityEngine.AnimationState obj = (UnityEngine.AnimationState)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationState));
+				UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 2);
+				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.AddMixingTransform(arg0, arg1);
 				return 0;
 			}
@@ -78,7 +78,7 @@ public class UnityEngine_AnimationStateWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.AnimationState.AddMixingTransform");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -91,11 +91,11 @@ public class UnityEngine_AnimationStateWrap
 		{
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.AnimationState obj = (UnityEngine.AnimationState)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationState));
-			UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Transform));
+			UnityEngine.Transform arg0 = (UnityEngine.Transform)ToLua.CheckObject<UnityEngine.Transform>(L, 2);
 			obj.RemoveMixingTransform(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -113,7 +113,7 @@ public class UnityEngine_AnimationStateWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -134,7 +134,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index enabled on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index enabled on a nil value");
 		}
 	}
 
@@ -153,7 +153,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index weight on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index weight on a nil value");
 		}
 	}
 
@@ -172,7 +172,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index wrapMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index wrapMode on a nil value");
 		}
 	}
 
@@ -191,7 +191,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index time on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index time on a nil value");
 		}
 	}
 
@@ -210,7 +210,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index normalizedTime on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index normalizedTime on a nil value");
 		}
 	}
 
@@ -229,7 +229,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index speed on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index speed on a nil value");
 		}
 	}
 
@@ -248,7 +248,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index normalizedSpeed on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index normalizedSpeed on a nil value");
 		}
 	}
 
@@ -267,7 +267,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index length on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index length on a nil value");
 		}
 	}
 
@@ -286,7 +286,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index layer on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index layer on a nil value");
 		}
 	}
 
@@ -300,12 +300,12 @@ public class UnityEngine_AnimationStateWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.AnimationState obj = (UnityEngine.AnimationState)o;
 			UnityEngine.AnimationClip ret = obj.clip;
-			ToLua.Push(L, ret);
+			ToLua.PushSealed(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index clip on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index clip on a nil value");
 		}
 	}
 
@@ -324,7 +324,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index name on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index name on a nil value");
 		}
 	}
 
@@ -343,7 +343,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index blendMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index blendMode on a nil value");
 		}
 	}
 
@@ -362,7 +362,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index enabled on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index enabled on a nil value");
 		}
 	}
 
@@ -381,7 +381,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index weight on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index weight on a nil value");
 		}
 	}
 
@@ -400,7 +400,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index wrapMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index wrapMode on a nil value");
 		}
 	}
 
@@ -419,7 +419,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index time on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index time on a nil value");
 		}
 	}
 
@@ -438,7 +438,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index normalizedTime on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index normalizedTime on a nil value");
 		}
 	}
 
@@ -457,7 +457,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index speed on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index speed on a nil value");
 		}
 	}
 
@@ -476,7 +476,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index normalizedSpeed on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index normalizedSpeed on a nil value");
 		}
 	}
 
@@ -495,7 +495,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index layer on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index layer on a nil value");
 		}
 	}
 
@@ -514,7 +514,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index name on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index name on a nil value");
 		}
 	}
 
@@ -533,7 +533,7 @@ public class UnityEngine_AnimationStateWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index blendMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index blendMode on a nil value");
 		}
 	}
 }

@@ -14,7 +14,6 @@ public class UnityEngine_Texture2DWrap
 		L.RegFunction("GetPixelBilinear", GetPixelBilinear);
 		L.RegFunction("SetPixels", SetPixels);
 		L.RegFunction("SetPixels32", SetPixels32);
-		L.RegFunction("LoadImage", LoadImage);
 		L.RegFunction("LoadRawTextureData", LoadRawTextureData);
 		L.RegFunction("GetRawTextureData", GetRawTextureData);
 		L.RegFunction("GetPixels", GetPixels);
@@ -25,9 +24,6 @@ public class UnityEngine_Texture2DWrap
 		L.RegFunction("PackTextures", PackTextures);
 		L.RegFunction("GenerateAtlas", GenerateAtlas);
 		L.RegFunction("ReadPixels", ReadPixels);
-		L.RegFunction("EncodeToPNG", EncodeToPNG);
-		L.RegFunction("EncodeToJPG", EncodeToJPG);
-		L.RegFunction("EncodeToEXR", EncodeToEXR);
 		L.RegFunction("New", _CreateUnityEngine_Texture2D);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
@@ -50,20 +46,20 @@ public class UnityEngine_Texture2DWrap
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 				UnityEngine.Texture2D obj = new UnityEngine.Texture2D(arg0, arg1);
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(UnityEngine.TextureFormat), typeof(bool)))
+			else if (count == 4)
 			{
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 				UnityEngine.TextureFormat arg2 = (UnityEngine.TextureFormat)ToLua.CheckObject(L, 3, typeof(UnityEngine.TextureFormat));
 				bool arg3 = LuaDLL.luaL_checkboolean(L, 4);
 				UnityEngine.Texture2D obj = new UnityEngine.Texture2D(arg0, arg1, arg2, arg3);
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
-			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(UnityEngine.TextureFormat), typeof(bool), typeof(bool)))
+			else if (count == 5)
 			{
 				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
 				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
@@ -71,7 +67,7 @@ public class UnityEngine_Texture2DWrap
 				bool arg3 = LuaDLL.luaL_checkboolean(L, 4);
 				bool arg4 = LuaDLL.luaL_checkboolean(L, 5);
 				UnityEngine.Texture2D obj = new UnityEngine.Texture2D(arg0, arg1, arg2, arg3, arg4);
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -79,7 +75,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.Texture2D.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -96,12 +92,12 @@ public class UnityEngine_Texture2DWrap
 			UnityEngine.TextureFormat arg2 = (UnityEngine.TextureFormat)ToLua.CheckObject(L, 3, typeof(UnityEngine.TextureFormat));
 			bool arg3 = LuaDLL.luaL_checkboolean(L, 4);
 			bool arg4 = LuaDLL.luaL_checkboolean(L, 5);
-			System.IntPtr arg5 = (System.IntPtr)LuaDLL.lua_touserdata(L, 6);
+			System.IntPtr arg5 = ToLua.CheckIntPtr(L, 6);
 			UnityEngine.Texture2D o = UnityEngine.Texture2D.CreateExternalTexture(arg0, arg1, arg2, arg3, arg4, arg5);
-			ToLua.Push(L, o);
+			ToLua.PushSealed(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -114,11 +110,11 @@ public class UnityEngine_Texture2DWrap
 		{
 			ToLua.CheckArgsCount(L, 2);
 			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
-			System.IntPtr arg0 = (System.IntPtr)LuaDLL.lua_touserdata(L, 2);
+			System.IntPtr arg0 = ToLua.CheckIntPtr(L, 2);
 			obj.UpdateExternalTexture(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -137,7 +133,7 @@ public class UnityEngine_Texture2DWrap
 			obj.SetPixel(arg0, arg1, arg2);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -156,7 +152,7 @@ public class UnityEngine_Texture2DWrap
 			ToLua.Push(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -175,7 +171,7 @@ public class UnityEngine_Texture2DWrap
 			ToLua.Push(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -188,41 +184,41 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Color[])))
+			if (count == 2)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Color[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 2);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Color[] arg0 = ToLua.CheckStructArray<UnityEngine.Color>(L, 2);
 				obj.SetPixels(arg0);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Color[]), typeof(int)))
+			else if (count == 3)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Color[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Color[] arg0 = ToLua.CheckStructArray<UnityEngine.Color>(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.SetPixels(arg0, arg1);
 				return 0;
 			}
-			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Color[])))
+			else if (count == 6)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
-				UnityEngine.Color[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 6);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				UnityEngine.Color[] arg4 = ToLua.CheckStructArray<UnityEngine.Color>(L, 6);
 				obj.SetPixels(arg0, arg1, arg2, arg3, arg4);
 				return 0;
 			}
-			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Color[]), typeof(int)))
+			else if (count == 7)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
-				UnityEngine.Color[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color>(L, 6);
-				int arg5 = (int)LuaDLL.lua_tonumber(L, 7);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				UnityEngine.Color[] arg4 = ToLua.CheckStructArray<UnityEngine.Color>(L, 6);
+				int arg5 = (int)LuaDLL.luaL_checknumber(L, 7);
 				obj.SetPixels(arg0, arg1, arg2, arg3, arg4, arg5);
 				return 0;
 			}
@@ -231,7 +227,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.SetPixels");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -244,41 +240,41 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Color32[])))
+			if (count == 2)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Color32[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 2);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Color32[] arg0 = ToLua.CheckStructArray<UnityEngine.Color32>(L, 2);
 				obj.SetPixels32(arg0);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Color32[]), typeof(int)))
+			else if (count == 3)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Color32[] arg0 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Color32[] arg0 = ToLua.CheckStructArray<UnityEngine.Color32>(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.SetPixels32(arg0, arg1);
 				return 0;
 			}
-			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Color32[])))
+			else if (count == 6)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
-				UnityEngine.Color32[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 6);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				UnityEngine.Color32[] arg4 = ToLua.CheckStructArray<UnityEngine.Color32>(L, 6);
 				obj.SetPixels32(arg0, arg1, arg2, arg3, arg4);
 				return 0;
 			}
-			else if (count == 7 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(int), typeof(int), typeof(UnityEngine.Color32[]), typeof(int)))
+			else if (count == 7)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
-				UnityEngine.Color32[] arg4 = ToLua.CheckObjectArray<UnityEngine.Color32>(L, 6);
-				int arg5 = (int)LuaDLL.lua_tonumber(L, 7);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				UnityEngine.Color32[] arg4 = ToLua.CheckStructArray<UnityEngine.Color32>(L, 6);
+				int arg5 = (int)LuaDLL.luaL_checknumber(L, 7);
 				obj.SetPixels32(arg0, arg1, arg2, arg3, arg4, arg5);
 				return 0;
 			}
@@ -287,42 +283,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.SetPixels32");
 			}
 		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadImage(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(byte[])))
-			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				byte[] arg0 = ToLua.CheckByteBuffer(L, 2);
-				bool o = obj.LoadImage(arg0);
-				LuaDLL.lua_pushboolean(L, o);
-				return 1;
-			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(byte[]), typeof(bool)))
-			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				byte[] arg0 = ToLua.CheckByteBuffer(L, 2);
-				bool arg1 = LuaDLL.lua_toboolean(L, 3);
-				bool o = obj.LoadImage(arg0, arg1);
-				LuaDLL.lua_pushboolean(L, o);
-				return 1;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.LoadImage");
-			}
-		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -335,18 +296,18 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(byte[])))
+			if (count == 2)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				byte[] arg0 = ToLua.CheckByteBuffer(L, 2);
 				obj.LoadRawTextureData(arg0);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(System.IntPtr), typeof(int)))
+			else if (count == 3)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				System.IntPtr arg0 = (System.IntPtr)LuaDLL.lua_touserdata(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				System.IntPtr arg0 = ToLua.CheckIntPtr(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				obj.LoadRawTextureData(arg0, arg1);
 				return 0;
 			}
@@ -355,7 +316,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.LoadRawTextureData");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -372,7 +333,7 @@ public class UnityEngine_Texture2DWrap
 			ToLua.Push(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -385,40 +346,40 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D)))
+			if (count == 1)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Color[] o = obj.GetPixels();
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int)))
+			else if (count == 2)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 				UnityEngine.Color[] o = obj.GetPixels(arg0);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(int), typeof(int)))
+			else if (count == 5)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
 				UnityEngine.Color[] o = obj.GetPixels(arg0, arg1, arg2, arg3);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 6 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(int), typeof(int), typeof(int)))
+			else if (count == 6)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 5);
-				int arg4 = (int)LuaDLL.lua_tonumber(L, 6);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 5);
+				int arg4 = (int)LuaDLL.luaL_checknumber(L, 6);
 				UnityEngine.Color[] o = obj.GetPixels(arg0, arg1, arg2, arg3, arg4);
 				ToLua.Push(L, o);
 				return 1;
@@ -428,7 +389,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.GetPixels");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -441,17 +402,17 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D)))
+			if (count == 1)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Color32[] o = obj.GetPixels32();
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int)))
+			else if (count == 2)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
 				UnityEngine.Color32[] o = obj.GetPixels32(arg0);
 				ToLua.Push(L, o);
 				return 1;
@@ -461,7 +422,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.GetPixels32");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -474,24 +435,24 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D)))
+			if (count == 1)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				obj.Apply();
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(bool)))
+			else if (count == 2)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				bool arg0 = LuaDLL.lua_toboolean(L, 2);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 				obj.Apply(arg0);
 				return 0;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(bool), typeof(bool)))
+			else if (count == 3)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				bool arg0 = LuaDLL.lua_toboolean(L, 2);
-				bool arg1 = LuaDLL.lua_toboolean(L, 3);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+				bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 				obj.Apply(arg0, arg1);
 				return 0;
 			}
@@ -500,7 +461,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.Apply");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -513,22 +474,22 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int)))
+			if (count == 3)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				bool o = obj.Resize(arg0, arg1);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
 			}
-			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int), typeof(int), typeof(UnityEngine.TextureFormat), typeof(bool)))
+			else if (count == 5)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				UnityEngine.TextureFormat arg2 = (UnityEngine.TextureFormat)ToLua.ToObject(L, 4);
-				bool arg3 = LuaDLL.lua_toboolean(L, 5);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				UnityEngine.TextureFormat arg2 = (UnityEngine.TextureFormat)ToLua.CheckObject(L, 4, typeof(UnityEngine.TextureFormat));
+				bool arg3 = LuaDLL.luaL_checkboolean(L, 5);
 				bool o = obj.Resize(arg0, arg1, arg2, arg3);
 				LuaDLL.lua_pushboolean(L, o);
 				return 1;
@@ -538,7 +499,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.Resize");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -555,7 +516,7 @@ public class UnityEngine_Texture2DWrap
 			obj.Compress(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -568,32 +529,32 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Texture2D[]), typeof(int)))
+			if (count == 3)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Texture2D[] arg0 = ToLua.CheckObjectArray<UnityEngine.Texture2D>(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
 				UnityEngine.Rect[] o = obj.PackTextures(arg0, arg1);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Texture2D[]), typeof(int), typeof(int)))
+			else if (count == 4)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Texture2D[] arg0 = ToLua.CheckObjectArray<UnityEngine.Texture2D>(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Rect[] o = obj.PackTextures(arg0, arg1, arg2);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Texture2D[]), typeof(int), typeof(int), typeof(bool)))
+			else if (count == 5)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
 				UnityEngine.Texture2D[] arg0 = ToLua.CheckObjectArray<UnityEngine.Texture2D>(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				bool arg3 = LuaDLL.lua_toboolean(L, 5);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				bool arg3 = LuaDLL.luaL_checkboolean(L, 5);
 				UnityEngine.Rect[] o = obj.PackTextures(arg0, arg1, arg2, arg3);
 				ToLua.Push(L, o);
 				return 1;
@@ -603,7 +564,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.PackTextures");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -615,7 +576,7 @@ public class UnityEngine_Texture2DWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 4);
-			UnityEngine.Vector2[] arg0 = ToLua.CheckObjectArray<UnityEngine.Vector2>(L, 1);
+			UnityEngine.Vector2[] arg0 = ToLua.CheckStructArray<UnityEngine.Vector2>(L, 1);
 			int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
 			int arg2 = (int)LuaDLL.luaL_checknumber(L, 3);
 			System.Collections.Generic.List<UnityEngine.Rect> arg3 = (System.Collections.Generic.List<UnityEngine.Rect>)ToLua.CheckObject(L, 4, typeof(System.Collections.Generic.List<UnityEngine.Rect>));
@@ -623,7 +584,7 @@ public class UnityEngine_Texture2DWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -636,22 +597,22 @@ public class UnityEngine_Texture2DWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Rect), typeof(int), typeof(int)))
+			if (count == 4)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Rect arg0 = (UnityEngine.Rect)ToLua.ToObject(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Rect arg0 = StackTraits<UnityEngine.Rect>.Check(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
 				obj.ReadPixels(arg0, arg1, arg2);
 				return 0;
 			}
-			else if (count == 5 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Rect), typeof(int), typeof(int), typeof(bool)))
+			else if (count == 5)
 			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Rect arg0 = (UnityEngine.Rect)ToLua.ToObject(L, 2);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 3);
-				int arg2 = (int)LuaDLL.lua_tonumber(L, 4);
-				bool arg3 = LuaDLL.lua_toboolean(L, 5);
+				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
+				UnityEngine.Rect arg0 = StackTraits<UnityEngine.Rect>.Check(L, 2);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 3);
+				int arg2 = (int)LuaDLL.luaL_checknumber(L, 4);
+				bool arg3 = LuaDLL.luaL_checkboolean(L, 5);
 				obj.ReadPixels(arg0, arg1, arg2, arg3);
 				return 0;
 			}
@@ -660,90 +621,7 @@ public class UnityEngine_Texture2DWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.ReadPixels");
 			}
 		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int EncodeToPNG(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
-			byte[] o = obj.EncodeToPNG();
-			ToLua.Push(L, o);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int EncodeToJPG(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D)))
-			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				byte[] o = obj.EncodeToJPG();
-				ToLua.Push(L, o);
-				return 1;
-			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(int)))
-			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 2);
-				byte[] o = obj.EncodeToJPG(arg0);
-				ToLua.Push(L, o);
-				return 1;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.EncodeToJPG");
-			}
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int EncodeToEXR(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D)))
-			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				byte[] o = obj.EncodeToEXR();
-				ToLua.Push(L, o);
-				return 1;
-			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(UnityEngine.Texture2D), typeof(UnityEngine.Texture2D.EXRFlags)))
-			{
-				UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.ToObject(L, 1);
-				UnityEngine.Texture2D.EXRFlags arg0 = (UnityEngine.Texture2D.EXRFlags)ToLua.ToObject(L, 2);
-				byte[] o = obj.EncodeToEXR(arg0);
-				ToLua.Push(L, o);
-				return 1;
-			}
-			else
-			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.EncodeToEXR");
-			}
-		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -761,7 +639,7 @@ public class UnityEngine_Texture2DWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -782,7 +660,7 @@ public class UnityEngine_Texture2DWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index mipmapCount on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index mipmapCount on a nil value");
 		}
 	}
 
@@ -801,7 +679,7 @@ public class UnityEngine_Texture2DWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index format on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index format on a nil value");
 		}
 	}
 
@@ -810,10 +688,10 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-			ToLua.Push(L, UnityEngine.Texture2D.whiteTexture);
+			ToLua.PushSealed(L, UnityEngine.Texture2D.whiteTexture);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -824,10 +702,10 @@ public class UnityEngine_Texture2DWrap
 	{
 		try
 		{
-			ToLua.Push(L, UnityEngine.Texture2D.blackTexture);
+			ToLua.PushSealed(L, UnityEngine.Texture2D.blackTexture);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

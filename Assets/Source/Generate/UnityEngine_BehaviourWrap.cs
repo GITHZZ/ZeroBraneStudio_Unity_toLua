@@ -33,7 +33,7 @@ public class UnityEngine_BehaviourWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.Behaviour.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -51,7 +51,7 @@ public class UnityEngine_BehaviourWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -72,7 +72,7 @@ public class UnityEngine_BehaviourWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index enabled on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index enabled on a nil value");
 		}
 	}
 
@@ -91,7 +91,7 @@ public class UnityEngine_BehaviourWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index isActiveAndEnabled on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isActiveAndEnabled on a nil value");
 		}
 	}
 
@@ -110,7 +110,7 @@ public class UnityEngine_BehaviourWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index enabled on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index enabled on a nil value");
 		}
 	}
 }

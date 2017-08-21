@@ -36,7 +36,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.time);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -50,7 +50,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.timeSinceLevelLoad);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -64,7 +64,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.deltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -78,7 +78,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.fixedTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -92,7 +92,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.unscaledTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -106,7 +106,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.fixedUnscaledTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -120,7 +120,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.unscaledDeltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -134,7 +134,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.fixedUnscaledDeltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -148,7 +148,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.fixedDeltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -162,7 +162,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.maximumDeltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -176,7 +176,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.smoothDeltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -190,7 +190,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.maximumParticleDeltaTime);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -204,7 +204,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.timeScale);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -218,7 +218,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Time.frameCount);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -232,7 +232,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Time.renderedFrameCount);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -246,7 +246,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Time.realtimeSinceStartup);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -260,7 +260,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Time.captureFramerate);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -274,7 +274,7 @@ public class UnityEngine_TimeWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Time.inFixedTimeStep);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -289,7 +289,7 @@ public class UnityEngine_TimeWrap
 			UnityEngine.Time.fixedDeltaTime = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -304,7 +304,7 @@ public class UnityEngine_TimeWrap
 			UnityEngine.Time.maximumDeltaTime = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -319,7 +319,7 @@ public class UnityEngine_TimeWrap
 			UnityEngine.Time.maximumParticleDeltaTime = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -334,7 +334,7 @@ public class UnityEngine_TimeWrap
 			UnityEngine.Time.timeScale = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -349,7 +349,7 @@ public class UnityEngine_TimeWrap
 			UnityEngine.Time.captureFramerate = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

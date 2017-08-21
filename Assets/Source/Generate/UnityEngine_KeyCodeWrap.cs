@@ -330,6 +330,18 @@ public class UnityEngine_KeyCodeWrap
 		L.RegVar("Joystick8Button19", get_Joystick8Button19, null);
 		L.RegFunction("IntToEnum", IntToEnum);
 		L.EndEnum();
+		TypeTraits<UnityEngine.KeyCode>.Check = CheckType;
+		StackTraits<UnityEngine.KeyCode>.Push = Push;
+	}
+
+	static void Push(IntPtr L, UnityEngine.KeyCode arg)
+	{
+		ToLua.Push(L, arg);
+	}
+
+	static bool CheckType(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckEnumType(typeof(UnityEngine.KeyCode), L, pos);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

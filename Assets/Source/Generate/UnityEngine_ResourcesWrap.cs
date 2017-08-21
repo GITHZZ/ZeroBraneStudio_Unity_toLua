@@ -23,12 +23,12 @@ public class UnityEngine_ResourcesWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 1, typeof(System.Type));
+			System.Type arg0 = ToLua.CheckMonoType(L, 1);
 			UnityEngine.Object[] o = UnityEngine.Resources.FindObjectsOfTypeAll(arg0);
 			ToLua.Push(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -41,17 +41,17 @@ public class UnityEngine_ResourcesWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			if (count == 1)
 			{
-				string arg0 = ToLua.ToString(L, 1);
+				string arg0 = ToLua.CheckString(L, 1);
 				UnityEngine.Object o = UnityEngine.Resources.Load(arg0);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Type)))
+			else if (count == 2)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				System.Type arg1 = (System.Type)ToLua.ToObject(L, 2);
+				string arg0 = ToLua.CheckString(L, 1);
+				System.Type arg1 = ToLua.CheckMonoType(L, 2);
 				UnityEngine.Object o = UnityEngine.Resources.Load(arg0, arg1);
 				ToLua.Push(L, o);
 				return 1;
@@ -61,7 +61,7 @@ public class UnityEngine_ResourcesWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Resources.Load");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -74,19 +74,19 @@ public class UnityEngine_ResourcesWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			if (count == 1)
 			{
-				string arg0 = ToLua.ToString(L, 1);
+				string arg0 = ToLua.CheckString(L, 1);
 				UnityEngine.ResourceRequest o = UnityEngine.Resources.LoadAsync(arg0);
-				ToLua.PushObject(L, o);
+				ToLua.PushSealed(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Type)))
+			else if (count == 2)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				System.Type arg1 = (System.Type)ToLua.ToObject(L, 2);
+				string arg0 = ToLua.CheckString(L, 1);
+				System.Type arg1 = ToLua.CheckMonoType(L, 2);
 				UnityEngine.ResourceRequest o = UnityEngine.Resources.LoadAsync(arg0, arg1);
-				ToLua.PushObject(L, o);
+				ToLua.PushSealed(L, o);
 				return 1;
 			}
 			else
@@ -94,7 +94,7 @@ public class UnityEngine_ResourcesWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Resources.LoadAsync");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -107,17 +107,17 @@ public class UnityEngine_ResourcesWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 1 && TypeChecker.CheckTypes(L, 1, typeof(string)))
+			if (count == 1)
 			{
-				string arg0 = ToLua.ToString(L, 1);
+				string arg0 = ToLua.CheckString(L, 1);
 				UnityEngine.Object[] o = UnityEngine.Resources.LoadAll(arg0);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes(L, 1, typeof(string), typeof(System.Type)))
+			else if (count == 2)
 			{
-				string arg0 = ToLua.ToString(L, 1);
-				System.Type arg1 = (System.Type)ToLua.ToObject(L, 2);
+				string arg0 = ToLua.CheckString(L, 1);
+				System.Type arg1 = ToLua.CheckMonoType(L, 2);
 				UnityEngine.Object[] o = UnityEngine.Resources.LoadAll(arg0, arg1);
 				ToLua.Push(L, o);
 				return 1;
@@ -127,7 +127,7 @@ public class UnityEngine_ResourcesWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Resources.LoadAll");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -139,13 +139,13 @@ public class UnityEngine_ResourcesWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			System.Type arg0 = (System.Type)ToLua.CheckObject(L, 1, typeof(System.Type));
+			System.Type arg0 = ToLua.CheckMonoType(L, 1);
 			string arg1 = ToLua.CheckString(L, 2);
 			UnityEngine.Object o = UnityEngine.Resources.GetBuiltinResource(arg0, arg1);
 			ToLua.Push(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -157,11 +157,11 @@ public class UnityEngine_ResourcesWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.CheckUnityObject(L, 1, typeof(UnityEngine.Object));
+			UnityEngine.Object arg0 = (UnityEngine.Object)ToLua.CheckObject<UnityEngine.Object>(L, 1);
 			UnityEngine.Resources.UnloadAsset(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -177,7 +177,7 @@ public class UnityEngine_ResourcesWrap
 			ToLua.PushObject(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

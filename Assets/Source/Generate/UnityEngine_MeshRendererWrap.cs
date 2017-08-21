@@ -24,7 +24,7 @@ public class UnityEngine_MeshRendererWrap
 			if (count == 0)
 			{
 				UnityEngine.MeshRenderer obj = new UnityEngine.MeshRenderer();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -32,7 +32,7 @@ public class UnityEngine_MeshRendererWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.MeshRenderer.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -50,7 +50,7 @@ public class UnityEngine_MeshRendererWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -66,12 +66,12 @@ public class UnityEngine_MeshRendererWrap
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshRenderer obj = (UnityEngine.MeshRenderer)o;
 			UnityEngine.Mesh ret = obj.additionalVertexStreams;
-			ToLua.Push(L, ret);
+			ToLua.PushSealed(L, ret);
 			return 1;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index additionalVertexStreams on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index additionalVertexStreams on a nil value");
 		}
 	}
 
@@ -84,13 +84,13 @@ public class UnityEngine_MeshRendererWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			UnityEngine.MeshRenderer obj = (UnityEngine.MeshRenderer)o;
-			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.Mesh));
+			UnityEngine.Mesh arg0 = (UnityEngine.Mesh)ToLua.CheckObject(L, 2, typeof(UnityEngine.Mesh));
 			obj.additionalVertexStreams = arg0;
 			return 0;
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index additionalVertexStreams on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index additionalVertexStreams on a nil value");
 		}
 	}
 }

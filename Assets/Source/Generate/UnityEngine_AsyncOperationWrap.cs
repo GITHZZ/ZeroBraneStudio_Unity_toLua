@@ -34,7 +34,7 @@ public class UnityEngine_AsyncOperationWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.AsyncOperation.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -55,7 +55,7 @@ public class UnityEngine_AsyncOperationWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index isDone on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index isDone on a nil value");
 		}
 	}
 
@@ -74,7 +74,7 @@ public class UnityEngine_AsyncOperationWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index progress on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index progress on a nil value");
 		}
 	}
 
@@ -93,7 +93,7 @@ public class UnityEngine_AsyncOperationWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index priority on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index priority on a nil value");
 		}
 	}
 
@@ -112,7 +112,7 @@ public class UnityEngine_AsyncOperationWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index allowSceneActivation on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index allowSceneActivation on a nil value");
 		}
 	}
 
@@ -131,7 +131,7 @@ public class UnityEngine_AsyncOperationWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index priority on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index priority on a nil value");
 		}
 	}
 
@@ -150,7 +150,7 @@ public class UnityEngine_AsyncOperationWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index allowSceneActivation on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index allowSceneActivation on a nil value");
 		}
 	}
 }

@@ -21,6 +21,7 @@ public class UnityEngine_AnimationClipWrap
 		L.RegVar("localBounds", get_localBounds, set_localBounds);
 		L.RegVar("legacy", get_legacy, set_legacy);
 		L.RegVar("humanMotion", get_humanMotion, null);
+		L.RegVar("empty", get_empty, null);
 		L.RegVar("events", get_events, set_events);
 		L.EndClass();
 	}
@@ -35,7 +36,7 @@ public class UnityEngine_AnimationClipWrap
 			if (count == 0)
 			{
 				UnityEngine.AnimationClip obj = new UnityEngine.AnimationClip();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -43,7 +44,7 @@ public class UnityEngine_AnimationClipWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.AnimationClip.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -56,12 +57,12 @@ public class UnityEngine_AnimationClipWrap
 		{
 			ToLua.CheckArgsCount(L, 3);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
-			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckUnityObject(L, 2, typeof(UnityEngine.GameObject));
+			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 2, typeof(UnityEngine.GameObject));
 			float arg1 = (float)LuaDLL.luaL_checknumber(L, 3);
 			obj.SampleAnimation(arg0, arg1);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -75,13 +76,13 @@ public class UnityEngine_AnimationClipWrap
 			ToLua.CheckArgsCount(L, 5);
 			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)ToLua.CheckObject(L, 1, typeof(UnityEngine.AnimationClip));
 			string arg0 = ToLua.CheckString(L, 2);
-			System.Type arg1 = (System.Type)ToLua.CheckObject(L, 3, typeof(System.Type));
+			System.Type arg1 = ToLua.CheckMonoType(L, 3);
 			string arg2 = ToLua.CheckString(L, 4);
 			UnityEngine.AnimationCurve arg3 = (UnityEngine.AnimationCurve)ToLua.CheckObject(L, 5, typeof(UnityEngine.AnimationCurve));
 			obj.SetCurve(arg0, arg1, arg2, arg3);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -97,7 +98,7 @@ public class UnityEngine_AnimationClipWrap
 			obj.EnsureQuaternionContinuity();
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -113,7 +114,7 @@ public class UnityEngine_AnimationClipWrap
 			obj.ClearCurves();
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -130,7 +131,7 @@ public class UnityEngine_AnimationClipWrap
 			obj.AddEvent(arg0);
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -148,7 +149,7 @@ public class UnityEngine_AnimationClipWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -169,7 +170,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index length on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index length on a nil value");
 		}
 	}
 
@@ -188,7 +189,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index frameRate on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index frameRate on a nil value");
 		}
 	}
 
@@ -207,7 +208,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index wrapMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index wrapMode on a nil value");
 		}
 	}
 
@@ -226,7 +227,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index localBounds on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index localBounds on a nil value");
 		}
 	}
 
@@ -245,7 +246,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index legacy on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index legacy on a nil value");
 		}
 	}
 
@@ -264,7 +265,26 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index humanMotion on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index humanMotion on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_empty(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			UnityEngine.AnimationClip obj = (UnityEngine.AnimationClip)o;
+			bool ret = obj.empty;
+			LuaDLL.lua_pushboolean(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index empty on a nil value");
 		}
 	}
 
@@ -283,7 +303,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index events on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index events on a nil value");
 		}
 	}
 
@@ -302,7 +322,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index frameRate on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index frameRate on a nil value");
 		}
 	}
 
@@ -321,7 +341,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index wrapMode on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index wrapMode on a nil value");
 		}
 	}
 
@@ -340,7 +360,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index localBounds on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index localBounds on a nil value");
 		}
 	}
 
@@ -359,7 +379,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index legacy on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index legacy on a nil value");
 		}
 	}
 
@@ -378,7 +398,7 @@ public class UnityEngine_AnimationClipWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index events on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index events on a nil value");
 		}
 	}
 }

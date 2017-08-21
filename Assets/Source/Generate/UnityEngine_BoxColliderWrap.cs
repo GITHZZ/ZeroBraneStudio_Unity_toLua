@@ -25,7 +25,7 @@ public class UnityEngine_BoxColliderWrap
 			if (count == 0)
 			{
 				UnityEngine.BoxCollider obj = new UnityEngine.BoxCollider();
-				ToLua.Push(L, obj);
+				ToLua.PushSealed(L, obj);
 				return 1;
 			}
 			else
@@ -33,7 +33,7 @@ public class UnityEngine_BoxColliderWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: UnityEngine.BoxCollider.New");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -51,7 +51,7 @@ public class UnityEngine_BoxColliderWrap
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -72,7 +72,7 @@ public class UnityEngine_BoxColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index center on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index center on a nil value");
 		}
 	}
 
@@ -91,7 +91,7 @@ public class UnityEngine_BoxColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index size on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index size on a nil value");
 		}
 	}
 
@@ -110,7 +110,7 @@ public class UnityEngine_BoxColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index center on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index center on a nil value");
 		}
 	}
 
@@ -129,7 +129,7 @@ public class UnityEngine_BoxColliderWrap
 		}
 		catch(Exception e)
 		{
-			return LuaDLL.toluaL_exception(L, e, o == null ? "attempt to index size on a nil value" : e.Message);
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index size on a nil value");
 		}
 	}
 }

@@ -30,20 +30,20 @@ public class UnityEngine_ScreenWrap
 		{
 			int count = LuaDLL.lua_gettop(L);
 
-			if (count == 3 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(bool)))
+			if (count == 3)
 			{
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
-				bool arg2 = LuaDLL.lua_toboolean(L, 3);
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
 				UnityEngine.Screen.SetResolution(arg0, arg1, arg2);
 				return 0;
 			}
-			else if (count == 4 && TypeChecker.CheckTypes(L, 1, typeof(int), typeof(int), typeof(bool), typeof(int)))
+			else if (count == 4)
 			{
-				int arg0 = (int)LuaDLL.lua_tonumber(L, 1);
-				int arg1 = (int)LuaDLL.lua_tonumber(L, 2);
-				bool arg2 = LuaDLL.lua_toboolean(L, 3);
-				int arg3 = (int)LuaDLL.lua_tonumber(L, 4);
+				int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
+				int arg1 = (int)LuaDLL.luaL_checknumber(L, 2);
+				bool arg2 = LuaDLL.luaL_checkboolean(L, 3);
+				int arg3 = (int)LuaDLL.luaL_checknumber(L, 4);
 				UnityEngine.Screen.SetResolution(arg0, arg1, arg2, arg3);
 				return 0;
 			}
@@ -52,7 +52,7 @@ public class UnityEngine_ScreenWrap
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Screen.SetResolution");
 			}
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -66,7 +66,7 @@ public class UnityEngine_ScreenWrap
 			ToLua.Push(L, UnityEngine.Screen.resolutions);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -80,7 +80,7 @@ public class UnityEngine_ScreenWrap
 			ToLua.PushValue(L, UnityEngine.Screen.currentResolution);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -94,7 +94,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Screen.width);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -108,7 +108,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Screen.height);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -122,7 +122,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushnumber(L, UnityEngine.Screen.dpi);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -136,7 +136,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Screen.fullScreen);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -150,7 +150,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Screen.autorotateToPortrait);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -164,7 +164,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Screen.autorotateToPortraitUpsideDown);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -178,7 +178,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Screen.autorotateToLandscapeLeft);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -192,7 +192,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushboolean(L, UnityEngine.Screen.autorotateToLandscapeRight);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -206,7 +206,7 @@ public class UnityEngine_ScreenWrap
 			ToLua.Push(L, UnityEngine.Screen.orientation);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -220,7 +220,7 @@ public class UnityEngine_ScreenWrap
 			LuaDLL.lua_pushinteger(L, UnityEngine.Screen.sleepTimeout);
 			return 1;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -235,7 +235,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.fullScreen = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -250,7 +250,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.autorotateToPortrait = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -265,7 +265,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.autorotateToPortraitUpsideDown = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -280,7 +280,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.autorotateToLandscapeLeft = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -295,7 +295,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.autorotateToLandscapeRight = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -310,7 +310,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.orientation = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
@@ -325,7 +325,7 @@ public class UnityEngine_ScreenWrap
 			UnityEngine.Screen.sleepTimeout = arg0;
 			return 0;
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}
