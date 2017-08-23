@@ -138,7 +138,38 @@ local function SaveContentToCustomLib(srcPathTbl)
 		desFile:write('\n')
 	end
 
+	--定时清理
+	local lastSaveTimeFile, err = ioOpen("packages/fileSaveTime.txt", "r")
+	if not lastSaveTimeFile then
+		if err then
+			print("Error to load unity.lua error:" .. err)
+			lastSaveTimeFile:close() 
+		end 
+		return
+	end 
+	local lastSaveTime = lastSaveTimeFile:read("*a")
+	lastSaveTimeFile:close()
+
+	--获取当前时间戳
+	local curTimeStamp = os.time()
+	if curTimeStamp - lastSaveTime >= 100 then
+		--這裡開始清理並記下這次清理時間
+		lastSaveTimeFile, err = ioOpen("packages/fileSaveTime.txt", "w")
+		if not lastSaveTimeFile then
+			if err then
+				print("Error to load unity.lua error:" .. err)
+				lastSaveTimeFile:close() 
+			end 
+			return
+		end 
+
+		lastSaveTimeFile:write("" .. curTimeStamp)
+		lastSaveTimeFile:close()
+	end 
+
 	local projectDir = ide.config.path.projectdir
+
+	--根据标记来选择模式 "r+" or ”w“
 	local desFile, err = ioOpen("api/lua/unity.lua", "r+")
 
 	if not desFile then
@@ -220,7 +251,7 @@ local function SaveContentToCustomLib(srcPathTbl)
 	end
 
 	desFile:write("}")
-	desFile:close()  
+	desFile:close()
 end
 
 --获取项目文件夹下所有lua文件

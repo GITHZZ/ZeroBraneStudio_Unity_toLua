@@ -16,12 +16,12 @@ local Enum_InfoType = {
 
 local function SetUpInfo()
 end 
-
-function Student.GetClassInfo()
+ 
+function Student.GetClassInfo() 
 end 
 
 function Student:initialize()
   print("initialize")
 end
- 
-return Student 
+
+return Student

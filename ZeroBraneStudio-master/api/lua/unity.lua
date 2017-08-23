@@ -1,6 +1,4 @@
-return{
-	
-Enum_EventType={
+return{Enum_EventType3={
 type='lib',
 childs={
   test1 ={type='value'},
@@ -20,6 +18,15 @@ Student={
 type='lib',
 childs={
 GetClassInfo={type='function',args ='()'},
+},
+},
+
+bit={
+type='lib',
+childs={
+rshift={type='function',args ='(x)'},
+bswap={type='function',args ='(x)'},
+rshift={type='function',args ='(x)'},
 },
 },
 
@@ -112,26 +119,6 @@ connect={type='function',args ='(address, port, laddress, lport)'},
 connect={type='function',args ='(address, port, laddress, lport)'},
 bind={type='function',args ='(host, port, backlog)'},
 choose={type='function',args ='(table)'},
-},
-},
-
-coroutine={
-type='lib',
-childs={
-start={type='function',args ='(f, ...)'},
-wait={type='function',args ='(t, co, ...)'},
-step={type='function',args ='(t, co, ...)'},
-www={type='function',args ='(www, co)'},
-stop={type='function',args ='(co)'},
-},
-},
-
-Timer={
-type='lib',
-childs={
-New={type='function',args ='(func, duration, loop, scale)'},
-New={type='function',args ='(func, count, loop)'},
-New={type='function',args ='(func, duration, loop)'},
 },
 },
 
@@ -287,44 +274,6 @@ type='lib',
 childs={
 New={type='function',args ='(func, count, loop)'},
 New={type='function',args ='(func, duration, loop)'},
-},
-},
-
-FrameTimer={
-type='lib',
-childs={
-New={type='function',args ='(func, count, loop)'},
-New={type='function',args ='(func, duration, loop)'},
-},
-},
-
-CoTimer={
-type='lib',
-childs={
-New={type='function',args ='(func, duration, loop)'},
-},
-},
-
-CoTimer={
-type='lib',
-childs={
-New={type='function',args ='(func, duration, loop)'},
-},
-},
-
-Enum_EventType2={
-type='lib',
-childs={
-  test1 ={type='value'},
-  test2 ={type='value'},
-},
-},
-
-Enum_EventType3={
-type='lib',
-childs={
-  test1 ={type='value'},
-  test2 ={type='value'},
 },
 },
 
