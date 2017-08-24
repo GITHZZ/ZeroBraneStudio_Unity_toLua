@@ -9,7 +9,7 @@ function Teacher:initialize()
   print("++Teacher:initialize++") 
   local cls = Student:new()
 end
-
+ 
 function Teacher:CoroutineTest()
   coroutine.start(Callback, "hello")
 end

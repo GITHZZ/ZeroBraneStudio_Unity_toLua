@@ -75,13 +75,6 @@ local events = {
   onAppShutdown =      function(self, app) end, -- the last event right before exiting
 }
 
-local stringMatch = string.match
-local ioOpen = io.open
-local stringFind = string.find
-local stringSub = string.sub
-local stringLen = string.len
-local tableInsert = table.insert
-
 --过滤配置
 local ingore = {
 	files = {
@@ -96,6 +89,18 @@ local contentType = {
 	enum = 1,
 	func = 2,
 }
+
+local stringMatch = string.match
+local ioOpen = io.open
+local stringFind = string.find
+local stringSub = string.sub
+local stringLen = string.len
+local tableInsert = table.insert
+
+local _functionType = nil
+local _starting = false
+local _isEnd = false
+
 
 --简单检测CustomLib语法格式
 local function CheckLibSyntax(code)
@@ -117,7 +122,7 @@ local function GetContentStringAndType(str)
 	local funcString = stringMatch(str, "%a+")
 
 	if enumString then
-		return contentType.enum, enumString, nil, nil
+		return {contentType.enum, enumString, nil, nil}
 	elseif funcString == "function" then
 		local decodeString = stringMatch(str, "%a+%.%a+")
 		if decodeString then
@@ -125,19 +130,75 @@ local function GetContentStringAndType(str)
 			local className = stringSub(decodeString, 1, idx - 1)
 			local funcName = stringSub(decodeString, idx + 1, stringLen(decodeString))
 			local argsName = stringMatch(str, "%b()") or "()"
-			return contentType.func, className, funcName, argsName
+			return {contentType.func, className, funcName, argsName}
 		end
 	end 
-	return nil, nil, nil, nil
+	return {nil, nil, nil, nil}
 end
 
-local function SaveContentToCustomLib(srcPathTbl)
-	local function WriteFunctionToLib(desFile, funcName, argsStr)
-		desFile:write(funcName .. "={type='function',")
-		desFile:write("args ='" .. argsStr .. "'},")
-		desFile:write('\n')
-	end
+local function WriteFunctionToLib(desFile, funcName, argsStr)
+	desFile:write(funcName .. "={type='function',")
+	desFile:write("args ='" .. argsStr .. "'},")
+	desFile:write('\n')
+end
 
+local function WriteEnumContentWhileEnding(desFile, str)
+	if _functionType == contentType.enum and _isEnd then
+		if _starting then
+			desFile:write("},\n},\n\n")
+		end
+		_starting = false
+		_functionType = nil
+	end
+end 
+
+local function WriteContentWhileStarting(desFile, str, info)
+	if _starting then
+		local funcName = info[3]
+		local argsName = info[4]
+		
+		if _functionType == contentType.enum then
+			local idx = stringFind(str, '=')
+			if idx ~= nil then
+				str = stringSub(str, 1, idx - 1)
+				desFile:write(str .. "={type='value'},")
+				desFile:write('\n')
+			end
+		elseif _functionType == contentType.func then
+			if funcName then
+				WriteFunctionToLib(desFile, funcName, argsName)
+			end
+		end
+	end
+end 
+
+local function WriteContentBeginStart(desFile, str, apiTable, info)
+	local className = info[2]
+	local funcName = info[3]
+	local argsName = info[4]
+		
+	if not _isEnd and className ~= nil and not _starting then
+		--检测语法
+		local err = CheckLibSyntax(className)
+		if err then
+			DisplayOutputLn("错误:", srcPathTbl[i] .. "文件格式存在问题,错误信息如下:" .. err)
+		else 
+			local isInApi = apiTable[className]
+			if not isInApi then
+				desFile:write(className .. "={\n")
+				desFile:write("type='lib',\n")
+				desFile:write("childs={\n")
+
+				if t == contentType.func then
+					WriteFunctionToLib(desFile, funcName, argsName)
+				end
+				_starting = true
+			end
+		end
+	end
+end 
+
+local function SaveContentToCustomLib(srcPathTbl)
 	--定时清理
 	local lastSaveTimeFile, err = ioOpen("packages/fileSaveTime.txt", "r")
 	if not lastSaveTimeFile then
@@ -185,67 +246,33 @@ local function SaveContentToCustomLib(srcPathTbl)
 
 	local apiTable = fileContent and loadstring(fileContent)() or {}
 
-	--desFile:write("return{\n") --以后构造文件自己加
+	--desFile:write("return{\n") --以后构造文件自己加	
 	for i = 1, #srcPathTbl, 1 do
 		local srcFile = ioOpen(srcPathTbl[i], "r")
 		if not srcFile then return end
 
-		local ty = nil
-		local starting = false
+		_functionType = nil
+		_starting = false
 
 		for line in srcFile:lines() do
 			local str = line
 
-			local t, className, funcName, argsName = GetContentStringAndType(str)
-			local isEnd = stringMatch(str, "}")
-			if ty == nil then ty = t end
-			--判断顺序不改变
-			if not isEnd and className ~= nil and not starting then
-				--检测语法
-				local err = CheckLibSyntax(className)
-				if err then
-					DisplayOutputLn("错误:", srcPathTbl[i] .. "文件格式存在问题,错误信息如下:" .. err)
-				else 
-					local isInApi = apiTable[className]
-				
-					if not isInApi then
-						desFile:write(className .. "={\n")
-						desFile:write("type='lib',\n")
-						desFile:write("childs={\n")
+			local info = GetContentStringAndType(str)
+			local t = info[1]
+			if _functionType == nil then _functionType = t end
 
-						if ty == contentType.func then
-							WriteFunctionToLib(desFile, funcName, argsName)
-						end
-						starting = true
-					end
-				end
-			elseif ty == contentType.enum and isEnd then
-				if starting then
-					desFile:write("},\n},\n\n")
-				end
-				starting = false
-				ty = nil
-			elseif starting then
-				if ty == contentType.enum then
-					local idx = stringFind(str, '=')
-					if idx ~= nil then
-						str = stringSub(str, 1, idx - 1)
-						desFile:write(str .. "={type='value'},")
-						desFile:write('\n')
-					end
-				elseif ty == contentType.func then
-					if funcName then
-						WriteFunctionToLib(desFile, funcName, argsName)
-					end
-				end
-			end
-			
+			_isEnd = stringMatch(str, "}")
+
+			--unity.lua内容写入主逻辑-顺序不改变
+			WriteEnumContentWhileEnding(desFile, str)
+			WriteContentWhileStarting(desFile, str, info)
+			WriteContentBeginStart(desFile, str, apiTable, info)
 		end
 
-		if ty == contentType.func and starting then
+		if _functionType == contentType.func and _starting then
 			desFile:write("},\n},\n\n")
-			starting = false
-			ty = nil
+			_starting = false
+			_functionType = nil
 		end
 		srcFile:close()
 	end
