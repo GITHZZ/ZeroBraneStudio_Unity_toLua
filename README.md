@@ -1,11 +1,11 @@
 # ZeroBraneStudio_Unity
 目前项目中使用到lua来做Unity项目(我想现在应该项目基本都用lua了),当时可以选择的调试可视化编辑器有两个  
-*LuaStudio  
-*ZeroBraneStudio  
+* LuaStudio  
+* ZeroBraneStudio  
 
 首先先不谈是否付费(LuaStudio好像是要付费的),我选择后者原因主要有两个  
-*因为有Mac版(搞iOS版本需要)  
-*因为开源
+* 因为有Mac版(搞iOS版本需要)  
+* 因为开源
 
 下面链接是ZeroBraneStudio原来的github地址:https://github.com/pkulchenko/ZeroBraneStudio
 本人抽取了其中一个版本作为修改  
@@ -27,6 +27,6 @@ lua的话就是用tolua 这个应该都知道是啥的了
 
 注意:  
 ---
-*第一版主要是搞了几样东西,首先是那个自定义语法生成 packages/CustomApiCreater.lua 作用是生成自定义语法 目的是为了跨文件代码提示 然后改了逻辑 
+* 第一版主要是搞了几样东西,首先是那个自定义语法生成 packages/CustomApiCreater.lua 作用是生成自定义语法 目的是为了跨文件代码提示 然后改了逻辑 
 退出调试不把unity编辑器关掉 还有就是保存时候会自动检测语法(默认需要手动调用)  
-*后面慢慢填坑,还有它这编辑器断点出现报错那些后面好了再提交吧,总之这个编辑器对unity(Tolua)兼容并不是很友好,虽然它本来就没有这个平台支持就是了。
+* 后面慢慢填坑,还有它这编辑器断点出现报错那些后面好了再提交吧,总之这个编辑器对unity(Tolua)兼容并不是很友好,虽然它本来就没有这个平台支持就是了。
