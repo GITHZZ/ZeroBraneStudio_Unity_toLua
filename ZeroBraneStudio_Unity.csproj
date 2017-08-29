@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9EBCDAE0-7644-A514-3BDE-9D90A4532530}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>iOS:9</UnityBuildTarget>
+    <UnityVersion>2017.1.0f3</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>4</LangVersion>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <AutoUnifyAssemblyReferences>false</AutoUnifyAssemblyReferences>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <AutoUnifyAssemblyReferences>false</AutoUnifyAssemblyReferences>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_0;UNITY_2017_1;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNIG;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;PLATFORM_IOS;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;ASYNC_MODE;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_0;UNITY_2017_1;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_RUNTIME_GI;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_NETWORK;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_IOS_NATIVE_CRASH_REPORTING;PLAYERCONNECTION_LISTENS_FIXED_PORT;DEBUGGER_LISTENS_FIXED_PORT;PLATFORM_SUPPORTS_ADS_ID;SUPPORT_ENVIRONMENT_VARIABLES;PLATFORM_SUPPORTS_PROFILER;PLATFORM_HAS_NO_SUPPORT_FOR_BUCKET_ALLOCATOR;STRICTCPP_NEW_DELETE_SIGNATURES;HAS_NEON_SKINNIG;UNITY_GFX_USE_PLATFORM_VSYNC;UNITY_INPUT_SIMULATE_EVENTS;PLATFORM_ALWAYS_USES_STDOUT_FOR_LOG;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;PLATFORM_IOS;UNITY_IOS;PLATFORM_IPHONE;UNITY_IPHONE;UNITY_IPHONE_API;SUPPORT_MULTIPLE_DISPLAYS;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU;ASYNC_MODE;ENABLE_IOS_ON_DEMAND_RESOURCES;ENABLE_IOS_APP_SLICING;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/Boo.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/UnityScript.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="CString">
+      <HintPath>Assets/Plugins/CString.dll</HintPath>
+    </Reference>
+    <Reference Include="Debugger">
+      <HintPath>Assets/Plugins/Debugger.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Scripts\ClientDefine.cs" />
+    <Compile Include="Assets\Scripts\ClientMain.cs" />
+    <Compile Include="Assets\Source\Generate\DelegateFactory.cs" />
+    <Compile Include="Assets\Source\Generate\LuaBinder.cs" />
+    <Compile Include="Assets\Source\Generate\LuaInterface_DebuggerWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AnimationBlendModeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AnimationClipWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AnimationStateWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AnimationWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AnimatorWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ApplicationWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AssetBundleWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AsyncOperationWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AudioClipWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_AudioSourceWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_BehaviourWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_BlendWeightsWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_BoxColliderWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_CameraClearFlagsWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_CameraWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_CapsuleColliderWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_CharacterControllerWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ColliderWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ComponentWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_GameObjectWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_InputWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_KeyCodeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_LightTypeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_LightWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_MaterialWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_MeshColliderWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_MeshRendererWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_MonoBehaviourWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ParticleSystemWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_PhysicsWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_PlayModeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_QualitySettingsWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_QueueModeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_RendererWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_RenderSettingsWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_RenderTextureWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ResourcesWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_RigidbodyWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ScreenWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_ShaderWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_SkinnedMeshRendererWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_SleepTimeoutWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_SpaceWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_SphereColliderWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_Texture2DWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_TextureWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_TimeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_TrackedReferenceWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_TransformWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_WrapModeWrap.cs" />
+    <Compile Include="Assets\Source\Generate\UnityEngine_WWWWrap.cs" />
+    <Compile Include="Assets\Source\LuaConst.cs" />
+    <Compile Include="Assets\ToLua\BaseType\LuaInterface_EventObjectWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\LuaInterface_LuaConstructorWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\LuaInterface_LuaFieldWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\LuaInterface_LuaMethodWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\LuaInterface_LuaOutWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\LuaInterface_LuaPropertyWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_ArrayWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_Generic_Dictionary_KeyCollectionWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_Generic_Dictionary_ValueCollectionWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_Generic_DictionaryWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_Generic_KeyValuePairWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_Generic_ListWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_IEnumeratorWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_Collections_ObjectModel_ReadOnlyCollectionWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_DelegateWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_EnumWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_NullObjectWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_ObjectWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_StringWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\System_TypeWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\UnityEngine_CoroutineWrap.cs" />
+    <Compile Include="Assets\ToLua\BaseType\UnityEngine_ObjectWrap.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaAttributes.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaBaseRef.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaBeatEvent.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaDLL.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaEvent.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaException.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaFileUtils.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaFunction.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaMatchType.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaMethodCache.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaMisc.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaStackOp.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaState.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaStatePtr.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaStatic.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaTable.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaThread.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaUnityLibs.cs" />
+    <Compile Include="Assets\ToLua\Core\LuaValueType.cs" />
+    <Compile Include="Assets\ToLua\Core\ObjectPool.cs" />
+    <Compile Include="Assets\ToLua\Core\ObjectTranslator.cs" />
+    <Compile Include="Assets\ToLua\Core\ToLua.cs" />
+    <Compile Include="Assets\ToLua\Core\TypeChecker.cs" />
+    <Compile Include="Assets\ToLua\Core\TypeTraits.cs" />
+    <Compile Include="Assets\ToLua\Examples\01_HelloWorld\HelloWorld.cs" />
+    <Compile Include="Assets\ToLua\Examples\02_ScriptsFromFile\ScriptsFromFile.cs" />
+    <Compile Include="Assets\ToLua\Examples\03_CallLuaFunction\CallLuaFunction.cs" />
+    <Compile Include="Assets\ToLua\Examples\04_AccessingLuaVariables\AccessingLuaVariables.cs" />
+    <Compile Include="Assets\ToLua\Examples\05_LuaCoroutine\TestCoroutine.cs" />
+    <Compile Include="Assets\ToLua\Examples\06_LuaCoroutine2\TestCoroutine2.cs" />
+    <Compile Include="Assets\ToLua\Examples\07_LuaThread\TestLuaThread.cs" />
+    <Compile Include="Assets\ToLua\Examples\08_AccessingArray\AccessingArray.cs" />
+    <Compile Include="Assets\ToLua\Examples\09_Dictionary\System_Collections_Generic_Dictionary_int_TestAccount_KeyCollectionWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\09_Dictionary\System_Collections_Generic_Dictionary_int_TestAccount_ValueCollectionWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\09_Dictionary\System_Collections_Generic_Dictionary_int_TestAccountWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\09_Dictionary\System_Collections_Generic_KeyValuePair_int_TestAccountWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\09_Dictionary\TestAccountWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\09_Dictionary\UseDictionary.cs" />
+    <Compile Include="Assets\ToLua\Examples\10_Enum\AccessingEnum.cs" />
+    <Compile Include="Assets\ToLua\Examples\11_Delegate\TestDelegate.cs" />
+    <Compile Include="Assets\ToLua\Examples\11_Delegate\TestEventListener.cs" />
+    <Compile Include="Assets\ToLua\Examples\11_Delegate\TestEventListenerWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\12_GameObject\TestGameObject.cs" />
+    <Compile Include="Assets\ToLua\Examples\13_CustomLoader\TestCustomLoader.cs" />
+    <Compile Include="Assets\ToLua\Examples\14_Out\TestOutArg.cs" />
+    <Compile Include="Assets\ToLua\Examples\15_ProtoBuffer\TestProtoBuffer.cs" />
+    <Compile Include="Assets\ToLua\Examples\15_ProtoBuffer\TestProtol.cs" />
+    <Compile Include="Assets\ToLua\Examples\15_ProtoBuffer\TestProtolWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\16_Int64\TestInt64.cs" />
+    <Compile Include="Assets\ToLua\Examples\17_Inherit\TestInherit.cs" />
+    <Compile Include="Assets\ToLua\Examples\18_Bundle\TestABLoader.cs" />
+    <Compile Include="Assets\ToLua\Examples\19_cjson\TestCJson.cs" />
+    <Compile Include="Assets\ToLua\Examples\20_utf8\TestUTF8.cs" />
+    <Compile Include="Assets\ToLua\Examples\21_String\TestString.cs" />
+    <Compile Include="Assets\ToLua\Examples\22_Reflection\TestReflection.cs" />
+    <Compile Include="Assets\ToLua\Examples\23_List\UseList.cs" />
+    <Compile Include="Assets\ToLua\Examples\24_Struct\PassStruct.cs" />
+    <Compile Include="Assets\ToLua\Examples\Performance\TestPerformance.cs" />
+    <Compile Include="Assets\ToLua\Examples\TestErrorStack\TestInstantiate.cs" />
+    <Compile Include="Assets\ToLua\Examples\TestErrorStack\TestInstantiate2.cs" />
+    <Compile Include="Assets\ToLua\Examples\TestErrorStack\TestLuaStack.cs" />
+    <Compile Include="Assets\ToLua\Examples\TestOverload\TestExport_SpaceWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\TestOverload\TestExportWrap.cs" />
+    <Compile Include="Assets\ToLua\Examples\TestOverload\TestOverload.cs" />
+    <Compile Include="Assets\ToLua\Misc\LuaClient.cs" />
+    <Compile Include="Assets\ToLua\Misc\LuaCoroutine.cs" />
+    <Compile Include="Assets\ToLua\Misc\LuaLooper.cs" />
+    <Compile Include="Assets\ToLua\Misc\LuaResLoader.cs" />
+    <Compile Include="Assets\ToLua\Reflection\LuaConstructor.cs" />
+    <Compile Include="Assets\ToLua\Reflection\LuaField.cs" />
+    <Compile Include="Assets\ToLua\Reflection\LuaMethod.cs" />
+    <Compile Include="Assets\ToLua\Reflection\LuaProperty.cs" />
+    <Compile Include="Assets\ToLua\Reflection\LuaReflection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\ToLua\readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>

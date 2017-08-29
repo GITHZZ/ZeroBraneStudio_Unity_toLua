@@ -1,4 +1,5 @@
-return{Enum_EventType={
+return{
+Enum_EventType4={
 type='lib',
 childs={
   test1 ={type='value'},
@@ -228,14 +229,6 @@ Touch={
 type='lib',
 childs={
 GetMask={type='function',args ='(...)'},
-},
-},
-
-Enum_EventType3={
-type='lib',
-childs={
-  test1 ={type='value'},
-  test2 ={type='value'},
 },
 },
 

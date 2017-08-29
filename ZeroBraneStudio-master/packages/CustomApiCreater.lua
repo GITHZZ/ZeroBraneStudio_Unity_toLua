@@ -75,6 +75,10 @@ local events = {
   onAppShutdown =      function(self, app) end, -- the last event right before exiting
 }
 
+--间隔多久全部重写unity.lua文件
+--定時清理用
+local rewriteApiSubTime = 30 * 60 * 60
+
 --过滤配置
 local ingore = {
 	files = {
@@ -116,8 +120,8 @@ local function CheckLibSyntax(code)
 	return err
 end
 
+--检测枚举还是方法
 local function GetContentStringAndType(str)
-	--检测枚举还是方法
 	local enumString = stringMatch(str, "Enum_%S+")
 	local funcString = stringMatch(str, "%a+")
 
@@ -136,12 +140,14 @@ local function GetContentStringAndType(str)
 	return {nil, nil, nil, nil}
 end
 
+--写入方法
 local function WriteFunctionToLib(desFile, funcName, argsStr)
 	desFile:write(funcName .. "={type='function',")
 	desFile:write("args ='" .. argsStr .. "'},")
 	desFile:write('\n')
 end
 
+--写入枚举结尾
 local function WriteEnumContentWhileEnding(desFile, str)
 	if _functionType == contentType.enum and _isEnd then
 		if _starting then
@@ -152,6 +158,7 @@ local function WriteEnumContentWhileEnding(desFile, str)
 	end
 end 
 
+--写入开头内容
 local function WriteContentWhileStarting(desFile, str, info)
 	if _starting then
 		local funcName = info[3]
@@ -172,6 +179,7 @@ local function WriteContentWhileStarting(desFile, str, info)
 	end
 end 
 
+--写入中间内容
 local function WriteContentBeginStart(desFile, str, apiTable, info)
 	local className = info[2]
 	local funcName = info[3]
@@ -213,8 +221,9 @@ local function SaveContentToCustomLib(srcPathTbl)
 
 	--获取当前时间戳
 	local curTimeStamp = os.time()
-	if curTimeStamp - lastSaveTime >= 100 then
-		--這裡開始清理並記下這次清理時間
+	local mode = "r+"
+	if curTimeStamp - lastSaveTime >= rewriteApiSubTime then
+		mode = "w";
 		lastSaveTimeFile, err = ioOpen("packages/fileSaveTime.txt", "w")
 		if not lastSaveTimeFile then
 			if err then
@@ -231,7 +240,7 @@ local function SaveContentToCustomLib(srcPathTbl)
 	local projectDir = ide.config.path.projectdir
 
 	--根据标记来选择模式 "r+" or ”w“
-	local desFile, err = ioOpen("api/lua/unity.lua", "r+")
+	local desFile, err = ioOpen("api/lua/unity.lua", mode)
 
 	if not desFile then
 		if err then
@@ -246,7 +255,7 @@ local function SaveContentToCustomLib(srcPathTbl)
 
 	local apiTable = fileContent and loadstring(fileContent)() or {}
 
-	--desFile:write("return{\n") --以后构造文件自己加	
+	desFile:write(mode == "r+" and "" or "return{\n")
 	for i = 1, #srcPathTbl, 1 do
 		local srcFile = ioOpen(srcPathTbl[i], "r")
 		if not srcFile then return end
