@@ -32,4 +32,4 @@ lua的话就是用tolua 这个应该都知道是啥的了
 * 后面慢慢填坑,还有它这编辑器断点出现报错那些后面好了再提交吧,总之这个编辑器对unity(Tolua)兼容并不是很友好,虽然它本来就没有这个平台支持就是了。
 
 ---
-旧项目稍微用了下Xlua，不过不像tolua需要做那么多工作，配置下就可以满足了，[https://github.com/GITHZZ/ZeroBraneStudioExample_xlua](跳转链接)
+旧项目稍微用了下Xlua，不过不像tolua需要做那么多工作，配置下就可以满足了，[跳转链接](https://github.com/GITHZZ/ZeroBraneStudioExample_xlua)
