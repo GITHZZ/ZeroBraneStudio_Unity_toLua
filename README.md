@@ -20,7 +20,7 @@
 其实项目中我已经改的七七八八了，基本能顺利调试，但是有些细节体验需要优化而已，然而那时候改的太high 忘了内网这东西(哭)，所以只能有空在我Mac上再重新搞一个了
 (不过以前弄得都基本通过改源码的，而且还比较乱，也是个机会吧)  
 
-还有这个demo里面面向对象用到的是middleclass [middleclass项目链接](https://github.com/kikito/middleclass)
+还有这个demo里面面向对象用到的是middleclass [项目链接](https://github.com/kikito/middleclass)
 所以很多东西可能细节上不一样 不过我这个主要是分享思路而已
 
 lua的话就是用tolua 这个应该都知道是啥的了  
