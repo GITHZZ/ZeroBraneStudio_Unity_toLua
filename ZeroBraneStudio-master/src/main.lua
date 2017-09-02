@@ -73,6 +73,7 @@ ide = {
       backspaceunindent = true,
       linenumber = true,
     },
+
     debugger = {
       allowediting = false,
       verbose = false,

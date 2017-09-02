@@ -75,20 +75,6 @@ local events = {
   onAppShutdown =      function(self, app) end, -- the last event right before exiting
 }
 
---间隔多久全部重写unity.lua文件
---定時清理用
-local rewriteApiSubTime = 30 * 60 * 60
-
---过滤配置
-local ingore = {
-	files = {
-		["middleclass.lua"] = true,
-		["Main.lua"] = true,
-	},
-	folder = {
-	},
-}
-
 local contentType = {
 	enum = 1,
 	func = 2,
@@ -207,6 +193,8 @@ local function WriteContentBeginStart(desFile, str, apiTable, info)
 end 
 
 local function SaveContentToCustomLib(srcPathTbl)
+	local rewriteApiSubTime = ide.config.editor.rewriteApiSubTime
+
 	--定时清理
 	local lastSaveTimeFile, err = ioOpen("packages/fileSaveTime.txt", "r")
 	if not lastSaveTimeFile then
@@ -292,6 +280,7 @@ end
 
 --获取项目文件夹下所有lua文件
 local function GetLoadFileList()
+	local ingore = ide.config.editor.ingore
 	local resultList = {}
 	local count = 0
 

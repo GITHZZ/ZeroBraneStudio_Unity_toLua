@@ -14,7 +14,7 @@ end
 
 function Main.LateUpdate()
 end 
-
+ 
 --场景切换通知
 function Main.OnLevelWasLoaded(level)
 	collectgarbage("collect") 
