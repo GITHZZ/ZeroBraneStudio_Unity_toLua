@@ -1253,6 +1253,7 @@ local function handle(params, client, options)
   local _, _, command = string.find(params, "^([a-z]+)")
 
   --绕过exit流程 如果接受到exit修改成done 不走退出流程(不是unity总会自动退出)
+  --你也可以从写os.exit方法绕开
   if command == "exit" then
     command = "done"
   end

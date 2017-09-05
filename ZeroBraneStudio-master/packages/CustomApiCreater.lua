@@ -167,6 +167,7 @@ end
 
 --写入中间内容
 local function WriteContentBeginStart(desFile, str, apiTable, info)
+	local tp = info[1]
 	local className = info[2]
 	local funcName = info[3]
 	local argsName = info[4]
@@ -183,7 +184,7 @@ local function WriteContentBeginStart(desFile, str, apiTable, info)
 				desFile:write("type='lib',\n")
 				desFile:write("childs={\n")
 
-				if t == contentType.func then
+				if tp == contentType.func then
 					WriteFunctionToLib(desFile, funcName, argsName)
 				end
 				_starting = true
