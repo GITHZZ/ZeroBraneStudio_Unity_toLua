@@ -108,7 +108,7 @@ end
 
 --检测枚举还是方法
 local function GetContentStringAndType(str)
-	local enumString = stringMatch(str, "Enum_%S+")
+	local enumString = stringMatch(str, "Enum_%S")
 	local funcString = stringMatch(str, "%a+")
 
 	if enumString then
